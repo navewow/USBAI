@@ -29,11 +29,11 @@ def webhook():
 ##postingMessage(json_data_final);
                 
 
-def postingMessage(json_data):
-        req = urllib2.Request('https://graph.facebook.com/v2.6/me/messages?access_token=EAAZAgx2FZBzKoBANeLcN8OcYJ8UZApCZBXYjpO29pZC4rQ2xGuJLdBHzmgOOkD22efYJn1OmdAUvYlWBNYZApOjLO167WH0UIA7jYvqsPy3FTKdn4ZBMZAWlenyYFdhKVu5PjzzESrB5wmjXwTZBjThJ2PVhGJbL0CrOJZBI1S82kWlFqMe7de4GRl')
-        req.add_header('Content-Type', 'application/json')
-        response = urllib2.urlopen(req, json.dumps(json_data))
-        return response;
+##def postingMessage(json_data):
+ #       req = urllib2.Request('https://graph.facebook.com/v2.6/me/messages?access_token=EAAZAgx2FZBzKoBANeLcN8OcYJ8UZApCZBXYjpO29pZC4rQ2xGuJLdBHzmgOOkD22efYJn1OmdAUvYlWBNYZApOjLO167WH0UIA7jYvqsPy3FTKdn4ZBMZAWlenyYFdhKVu5PjzzESrB5wmjXwTZBjThJ2PVhGJbL0CrOJZBI1S82kWlFqMe7de4GRl')
+ #       req.add_header('Content-Type', 'application/json')
+  #      response = urllib2.urlopen(req, json.dumps(json_data))
+   #     return response;
 
 if __name__ == '__main__':
         app.run()
