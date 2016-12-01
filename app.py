@@ -68,7 +68,7 @@ def send_message(recipient_id, message_text):
     })
     req = urllib2.Request('https://graph.facebook.com/v2.6/me/messages?access_token=EAAZAgx2FZBzKoBANUwLGzEiEXKuWrZAas32YTW5sQt9v9AtURPnrQD5wlzt5JFbJ3k5dyZBiZBZC7DAv4mwOJdSCRxYmDw2vzyr8oYeIqcyt8blL3TDYjKXEM02LU5PBUbZBxp0lQcXe2uJXW11uWa1WZC6dEhoYkrcM5vxuGeHQF6bd3Bsu9mUF')
     req.add_header('Content-Type', 'application/json')
-    response = urllib2.urlopen(req, json.dumps(json_data))
+    response = urllib2.urlopen(req, json.dumps(data))
     return response;
 
 
