@@ -97,8 +97,14 @@ def process_message(text,sender_id):
 			send_message(sender_id, "Your card has been blocked successfully.")
 		else:
 			send_message(sender_id, "Your card will not be blocked.")
-	elif "active" in text:
-		send_message(sender_id, "Card has been Activated")                
+	elif "activate" in text and "card" in text:
+		send_message(sender_id, "Card has been Activated")            
+	       
+	elif "cancel" in text and "transaction" in text:
+	       if "not" not in text and "dont" not in text:
+		       send_message(sender_id, "Your last transaction has been cancelled")
+	       else:
+		       send_message(sender_id, "Your last transaction will not be cancelled")
 	else:
 		send_message(sender_id, "Sorry.I am not able to understand.I'll call you")
 
