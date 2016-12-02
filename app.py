@@ -24,10 +24,13 @@ def verify():
 def webhook():
 
 	# endpoint for processing incoming messaging events
-
-	data = request.get_json()
-	log(data)  # you may not want to log every incoming message in production, but it's good for testing
-
+##
+##	data = request.get_json()
+##	log(data)  # you may not want to log every incoming message in production, but it's good for testing
+		value=request.data
+	jsonResponse=json.loads(value)
+	jsonData=jsonResponse["message"]["text"]
+	print jsonData
 	if data["object"] == "page":
 
 		for entry in data["entry"]:
@@ -40,20 +43,17 @@ def webhook():
 					message_text = messaging_event["message"]["text"]  # the message's text
 
 					send_message(sender_id, "How may i help you?")
-	value=request.data
-	jsonResponse=json.loads(value)
-	jsonData=jsonResponse["message"]["text"]
-	print jsonData
+	
 
-##                if messaging_event.get("delivery"):  # delivery confirmation
-##                    pass
-##
-##                if messaging_event.get("optin"):  # optin confirmation
-##                    pass
-##
-##                if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-##                    pass
-##            
+                if messaging_event.get("delivery"):  # delivery confirmation
+                    pass
+
+                if messaging_event.get("optin"):  # optin confirmation
+                    pass
+
+                if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
+                    pass
+            
 
 	return "ok", 200
 
