@@ -41,21 +41,18 @@ def webhook():
 					sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
 					recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
 					message_text = messaging_event["message"]["text"]  # the message's text
-					if "block" in message_text.lower():
-						send_message(sender_id, "success")
-					else:
-						send_message(sender_id, "fail")
+					
 
 	
 
-##				if messaging_event.get("delivery"):  # delivery confirmation
-##					pass
-##
-##				if messaging_event.get("optin"):  # optin confirmation
-##					pass
-##
-##				if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-##					pass
+				if messaging_event.get("delivery"):  # delivery confirmation
+					pass
+
+				if messaging_event.get("optin"):  # optin confirmation
+					pass
+
+				if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
+					pass
 			
 
 	return "ok", 200
@@ -92,6 +89,17 @@ def send_message(recipient_id, message_text):
 	r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
 	
 	return r.status_code;
+
+def process_message(text):
+	text=text.lower()
+	if "block" in text:
+		if "not" not in text and "dont" not in text and "unblock" not in text:
+			send_message(sender_id, "Your card has been blocked successfully.")
+		else:
+			send_message(sender_id, "Your card will not be blocked.")
+	else:
+		send_message(sender_id, "How may I help you?")
+
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
