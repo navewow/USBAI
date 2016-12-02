@@ -90,13 +90,15 @@ def send_message(recipient_id, message_text):
 
 def process_message(text,sender_id):
 	text=text.lower()
-	if "block" in text:
+	if "hi" in text:
+		send_message(sender_id, "Hi,How may I help you?")
+	elif "block" in text:
 		if "not" not in text and "dont" not in text and "unblock" not in text:
 			send_message(sender_id, "Your card has been blocked successfully.")
 		else:
 			send_message(sender_id, "Your card will not be blocked.")
 	else:
-		send_message(sender_id, "How may I help you?")
+		send_message(sender_id, "Sorry.I am not able to understand.I'll call you")
 
 
 
