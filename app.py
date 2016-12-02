@@ -77,7 +77,14 @@ def send_message(recipient_id, message_text):
 			"text": message_text
 		}
 	})
-	print data
+	value=request.data
+	output=''
+	jsonResponse=json.loads(value)
+	jsonData = jsonResponse["message"]["text"]
+	if ("block" in jsonData.lower()):
+		output='card blocked'
+	print output
+	
 	r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
 	
 	return r.status_code;
