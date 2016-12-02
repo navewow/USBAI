@@ -41,7 +41,7 @@ def webhook():
 					sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
 					recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
 					message_text = messaging_event["message"]["text"]  # the message's text
-					if "block" in message_text:
+					if "block" in message_text.lower():
 						send_message(sender_id, "success")
 					else:
 						send_message(sender_id, "fail")
