@@ -17,7 +17,7 @@ def verify():
     if token == "123":
         return request.args.get('hub.challenge')
     else:
-        return "error"   
+        return "error"
 
 
 @app.route('/bot', methods=['POST'])
@@ -51,7 +51,7 @@ def webhook():
 
                 if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
                     pass
-            
+
 
     return "ok", 200
 
@@ -66,26 +66,63 @@ def send_message(recipient_id, message_text):
     headers = {
         "Content-Type": "application/json"
     }
-    
-    data = json.dumps({
+    if "template" in message_text:
+        data = json.dumps({
         "recipient": {
             "id": recipient_id
         },
         "message": {
-            #"text": message_text
-            "attachment":{
+            message_text
+        }
+    })
+    else:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "text": message_text
+            }
+        })
+    print data
+##  value=request.data
+##  output=''
+##  jsonResponse=json.loads(data)
+##  jsonData = jsonResponse['message']['text']
+##  if ("block" in jsonData.lower()):
+##      output='card blocked'
+##  print output
+
+    r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
+
+    return r.status_code;
+
+def process_message(text,sender_id):
+    text=text.lower()
+    if "hi" in text:
+        send_message(sender_id, "Hi,How can I help you?")
+    elif "block" in text:
+        if "not" not in text and "dont" not in text and "unblock" not in text:
+            send_message(sender_id, "Your card has been blocked successfully.")
+        else:
+            send_message(sender_id, "Your card will not be blocked.")
+    elif "activate" in text and "card" in text:
+        send_message(sender_id, "Card has been Activated")
+    elif "last" in text and "transaction" in text:
+        transactionDetails = {
+            "attachment": {
               "type":"template",
               "payload":{
                 "template_type":"receipt",
                 "recipient_name":"Stephane Crozatier",
                 "order_number":"12345678902",
                 "currency":"USD",
-                "payment_method":"Visa 2345",        
+                "payment_method":"Visa 2345",
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-                "timestamp":"1428444852", 
+                "timestamp":"1428444852",
                 "elements":[
                   {
-                    "title":"Classic White T-Shirt",
+                    "title":"T-Shirt Purchase @ Walmart",
                     "subtitle":"100% Soft and Luxurious Cotton",
                     "quantity":2,
                     "price":50,
@@ -128,32 +165,7 @@ def send_message(recipient_id, message_text):
               }
             }
         }
-    })
-    print data
-##  value=request.data
-##  output=''
-##  jsonResponse=json.loads(data)
-##  jsonData = jsonResponse['message']['text']
-##  if ("block" in jsonData.lower()):
-##      output='card blocked'
-##  print output
-    
-    r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
-    
-    return r.status_code;
-
-def process_message(text,sender_id):
-    text=text.lower()
-    if "hi" in text:
-        send_message(sender_id, "Hi,How can I help you?")
-    elif "block" in text:
-        if "not" not in text and "dont" not in text and "unblock" not in text:
-            send_message(sender_id, "Your card has been blocked successfully.")
-        else:
-            send_message(sender_id, "Your card will not be blocked.")
-    elif "activate" in text and "card" in text:
-        send_message(sender_id, "Card has been Activated")            
-           
+        send_message(sender_id, transactionDetails)
     elif "cancel" in text and "transaction" in text:
            if "not" not in text and "dont" not in text:
                send_message(sender_id, "Your last transaction has been cancelled")
