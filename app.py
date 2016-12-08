@@ -68,13 +68,13 @@ def send_message(recipient_id, message_text):
     }
     if "template" in message_text:
         data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            message_text
-        }
-    })
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                message_text
+            }
+        })
     else:
         data = json.dumps({
             "recipient": {
