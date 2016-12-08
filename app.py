@@ -71,9 +71,7 @@ def send_message(recipient_id, message_text):
             "recipient": {
                 "id": recipient_id
             },
-            "message": {
-                message_text
-            }
+            "message": message_text
         })
     else:
         data = json.dumps({
