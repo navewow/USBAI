@@ -80,24 +80,16 @@ def send_message(recipient_id, message_text):
                     "order_number":"12345678902",
                     "currency":"USD",
                     "payment_method":"Visa 2345",
-                    "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
+                    "order_url":"https://lh6.ggpht.com/O0BQpKIbn8c6b67tF4h4VKytKXlUZWrWIdnL06d4LtrUvdUuGr8VF4y7i8ziGAyo23lF=w170",
                     "timestamp":"1428444852",
                     "elements":[
                       {
-                        "title":"U.S. Bank",
-                        "subtitle":"BAL @ 12/02/16 9:28am CT\\nCustomer's Account In A4: $382.57 \\nSavings A6: $655.63",
+                        "title":"U.S. Bank - BAL @ 12/02/16 9:28am CT",
+                        "subtitle":"Customer's Account In A4: $382.57  Savings A6: $655.63",
                         "quantity":1,
                         "price":0,
                         "currency":"USD",
-                        "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png"
-                      },
-                      {
-                        "title":"Transaction History",
-                        "subtitle":"A4 at 12/02/16 9:28am CT",
-                        "quantity":1,
-                        "price":0,
-                        "currency":"USD",
-                        "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
+                        "image_url":"https://lh3.ggpht.com/JPaCdWVnY-F8HBcBXvA68MTy-AFnGQPfXcj2MDIEuMSZdkVa0bM92eBcFxoj8EGiACMR=w300"
                       },
                       {
                         "title":"12/01/16 Web Author",
@@ -105,7 +97,7 @@ def send_message(recipient_id, message_text):
                         "quantity":1,
                         "price":159.90,
                         "currency":"USD",
-                        "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
+                        "image_url":"http://comofitness.com.au/wp-content/uploads/2015/03/Icon-01-300x300.png"
                       },
                       {
                         "title":"12/01/16 Debit Purc",
@@ -113,7 +105,7 @@ def send_message(recipient_id, message_text):
                         "quantity":1,
                         "price":19.98,
                         "currency":"USD",
-                        "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
+                        "image_url":"http://comofitness.com.au/wp-content/uploads/2015/03/Icon-01-300x300.png"
                       },
                       {
                         "title":"12/02/16 Electronic",
@@ -121,11 +113,12 @@ def send_message(recipient_id, message_text):
                         "quantity":1,
                         "price":856.45,
                         "currency":"USD",
-                        "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
+                        "image_url":"https://www.rcu.org/sites/default/files/money_icon_6.jpg"
                       }
                     ],
                     "summary":{
-                      "total_cost":328.57
+                      "total_cost":328.57,
+                      "text":"Balance"
                     }
                   }
                 }
