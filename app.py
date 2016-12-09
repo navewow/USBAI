@@ -124,7 +124,7 @@ def send_message(recipient_id, message_text):
                         "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
                       }
                     ],
-                    "balance":{
+                    "summary":{
                       "total_cost":756.14
                     }
                   }
