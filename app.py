@@ -97,7 +97,7 @@ def send_message(recipient_id, message_text):
                         "quantity":1,
                         "price":159.90,
                         "currency":"USD",
-                        "image_url":"http://comofitness.com.au/wp-content/uploads/2015/03/Icon-01-300x300.png"
+                        "image_url":"http://info.unionleasing.com/hs-fs/hub/371325/file-1922303652-png/Blog_Icons/Payment.png"
                       },
                       {
                         "title":"12/01/16 Debit Purc",
@@ -105,7 +105,7 @@ def send_message(recipient_id, message_text):
                         "quantity":1,
                         "price":19.98,
                         "currency":"USD",
-                        "image_url":"http://comofitness.com.au/wp-content/uploads/2015/03/Icon-01-300x300.png"
+                        "image_url":"http://info.unionleasing.com/hs-fs/hub/371325/file-1922303652-png/Blog_Icons/Payment.png"
                       },
                       {
                         "title":"12/02/16 Electronic",
