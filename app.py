@@ -77,7 +77,7 @@ def send_message(recipient_id, message_text):
                   "payload":{
                     "template_type":"receipt",
                     "recipient_name":"Stephane Crozatier",
-                    "order_number":"xxxxx8902",
+                    "order_number":"12345678902",
                     "currency":"USD",
                     "payment_method":"Checking",
                     "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
@@ -100,15 +100,28 @@ def send_message(recipient_id, message_text):
                         "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
                       }
                     ],
+                    "address":{
+                      "street_1":"1 Hacker Way",
+                      "street_2":"",
+                      "city":"Menlo Park",
+                      "postal_code":"94025",
+                      "state":"CA",
+                      "country":"US"
+                    },
                     "summary":{
-                      "subtotal":799
+                      "subtotal":75.00,
+                      "shipping_cost":4.95,
+                      "total_tax":6.19,
+                      "total_cost":56.14
                     },
                     "adjustments":[
                       {
-                        "name":"Winter Sale"
+                        "name":"Winter Sale",
+                        "amount":20
                       },
                       {
-                        "name":"Thanks Giving Sale"
+                        "name":"Thanks Giving Sale",
+                        "amount":10
                       }
                     ]
                   }
