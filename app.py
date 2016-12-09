@@ -157,6 +157,7 @@ def process_message(text,sender_id):
     elif "activate" in text and "card" in text:
         send_message(sender_id, "Card has been Activated")
     elif "last" in text and "transaction" in text:
+        send_message(sender_id, "Sure. One moment...")
         send_message(sender_id, "template")
     elif "cancel" in text and "transaction" in text:
            if "not" not in text and "dont" not in text:
