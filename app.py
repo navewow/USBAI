@@ -120,15 +120,15 @@ def send_message(recipient_id, message_text):
                                 "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                             }
                          ]
-                     },
+                     }
                     ],
-                    "buttons": [
+                     "buttons": [
                         {
                             "title": "View More",
                             "type": "postback",
                             "payload": "payload"
                         }
-                    ]
+                     ]
                   }
                 }
             }
