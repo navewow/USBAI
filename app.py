@@ -72,34 +72,64 @@ def send_message(recipient_id, message_text):
                 "id": recipient_id
             },
             "message": {
-                "attachment":{
+                "attachment": {
                   "type":"template",
                   "payload":{
-                    "template_type":"generic",
+                    "template_type":"receipt",
+                    "recipient_name":"Stephane Crozatier",
+                    "order_number":"12345678902",
+                    "currency":"USD",
+                    "payment_method":"Visa 2345",
+                    "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
+                    "timestamp":"1428444852",
                     "elements":[
                       {
-                        "title":"U.S. Bank Checking Account",
-                        "image_url":"https://petersfancybrownhats.com/company_image.png",
-                        "subtitle":"BAL @ 12/02/16 9:28am CT\nCustomer's Account In A4: $382.57\nSavings A6: $655.63"
+                        "title":"U.S. Bank",
+                        "subtitle":"BAL @ 12/02/16 9:28am CT\nCustomer's Account In A4: $382.57 \nSavings A6: $655.63",
+                        "quantity":1,
+                        "price":0,
+                        "currency":"USD",
+                        "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png"
                       },
                       {
                         "title":"Transaction History",
-                        "image_url":"https://petersfancybrownhats.com/company_image.png",
-                        "subtitle":"A4 at 12/02/16 9:28am CT"
+                        "subtitle":"A4 at 12/02/16 9:28am CT",
+                        "quantity":1,
+                        "price":0,
+                        "currency":"USD",
+                        "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
                       },
                       {
-                        "title":"12/01/16 Web Author -$159.90"
+                        "title":"12/01/16 Web Author",
+                        "subtitle":"Debit",
+                        "quantity":1,
+                        "price":159.90,
+                        "currency":"USD",
+                        "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
                       },
                       {
-                        "title":"12/01/16 Debit Purc -$19.98"
+                        "title":"12/01/16 Debit Purc",
+                        "subtitle":"Debit",
+                        "quantity":1,
+                        "price":19.98,
+                        "currency":"USD",
+                        "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
                       },
                       {
-                        "title":"12/02/16 Electronic +$856.45"
+                        "title":"12/02/16 Electronic",
+                        "subtitle":"Credit",
+                        "quantity":1,
+                        "price":856.45,
+                        "currency":"USD",
+                        "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
                       }
-                    ]
+                    ],
+                    "summary":{
+                      "total_cost":756.14
+                    }
                   }
                 }
-              }
+            }
         })
     else:
         data = json.dumps({
