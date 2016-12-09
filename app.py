@@ -73,56 +73,107 @@ def send_message(recipient_id, message_text):
             },
             "message": {
                 "attachment": {
-                  "type":"template",
-                  "payload":{
-                    "template_type":"list",
-                    "elements":[
-                       {
-                        "title":"Starbuck, Mall of America, MN 55423",
-                        "subtitle":"$29.00 - Debit",
-                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_cup_6443.png",
-                        "default_action": {
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                        },
-                        "buttons": [
+                    "type": "template",
+                    "payload": {
+                        "template_type": "list",
+                        "elements": [
                             {
-                                "title": "View",
-                                "type": "web_url",
-                                "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                                "messenger_extensions": true,
-                                "webview_height_ratio": "tall",
-                                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                            }
-                         ]
-                       },
-                       {
-                        "title":"Starbuck, Mall of America, MN 55423",
-                        "subtitle":"$29.00 - Debit",
-                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_cup_6443.png",
-                        "default_action": {
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                        },
-                        "buttons": [
+                                "title": "Classic T-Shirt Collection",
+                                "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                                "subtitle": "See all our colors",
+                                "default_action": {
+                                    "type": "web_url",
+                                    "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+                                    "messenger_extensions": true,
+                                    "webview_height_ratio": "tall",
+                                    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                                },
+                                "buttons": [
+                                    {
+                                        "title": "View",
+                                        "type": "web_url",
+                                        "url": "https://peterssendreceiveapp.ngrok.io/collection",
+                                        "messenger_extensions": true,
+                                        "webview_height_ratio": "tall",
+                                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                                    }
+                                ]
+                            },
                             {
-                                "title": "View",
-                                "type": "web_url",
-                                "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                                "messenger_extensions": true,
-                                "webview_height_ratio": "tall",
-                                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                                "title": "Classic White T-Shirt",
+                                "image_url": "https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png",
+                                "subtitle": "100% Cotton, 200% Comfortable",
+                                "default_action": {
+                                    "type": "web_url",
+                                    "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
+                                    "messenger_extensions": true,
+                                    "webview_height_ratio": "tall",
+                                    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                                },
+                                "buttons": [
+                                    {
+                                        "title": "Shop Now",
+                                        "type": "web_url",
+                                        "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
+                                        "messenger_extensions": true,
+                                        "webview_height_ratio": "tall",
+                                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "Classic Blue T-Shirt",
+                                "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+                                "subtitle": "100% Cotton, 200% Comfortable",
+                                "default_action": {
+                                    "type": "web_url",
+                                    "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+                                    "messenger_extensions": true,
+                                    "webview_height_ratio": "tall",
+                                    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                                },
+                                "buttons": [
+                                    {
+                                        "title": "Shop Now",
+                                        "type": "web_url",
+                                        "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+                                        "messenger_extensions": true,
+                                        "webview_height_ratio": "tall",
+                                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "Classic Black T-Shirt",
+                                "image_url": "https://peterssendreceiveapp.ngrok.io/img/black-t-shirt.png",
+                                "subtitle": "100% Cotton, 200% Comfortable",
+                                "default_action": {
+                                    "type": "web_url",
+                                    "url": "https://peterssendreceiveapp.ngrok.io/view?item=102",
+                                    "messenger_extensions": true,
+                                    "webview_height_ratio": "tall",
+                                    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                                },
+                                "buttons": [
+                                    {
+                                        "title": "Shop Now",
+                                        "type": "web_url",
+                                        "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
+                                        "messenger_extensions": true,
+                                        "webview_height_ratio": "tall",
+                                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                                    }
+                                ]
                             }
-                         ]
-                       }
-                    ]
-                  }
+                        ],
+                         "buttons": [
+                            {
+                                "title": "View More",
+                                "type": "postback",
+                                "payload": "payload"
+                            }
+                        ]
+                    }
                 }
             }
         })
