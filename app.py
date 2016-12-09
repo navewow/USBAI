@@ -84,20 +84,20 @@ def send_message(recipient_id, message_text):
                     "timestamp":"1428444852",
                     "elements":[
                       {
-                        "title":"U.S. Bank - BAL @ 12/02/16 9:28am CT",
-                        "subtitle":"Customer's Account In A4: $382.57  Savings A6: $655.63",
-                        "quantity":1,
-                        "price":0,
-                        "currency":"USD",
-                        "image_url":"https://lh3.ggpht.com/JPaCdWVnY-F8HBcBXvA68MTy-AFnGQPfXcj2MDIEuMSZdkVa0bM92eBcFxoj8EGiACMR=w300"
-                      },
-                      {
                         "title":"12/01/16 Web Author",
                         "subtitle":"Debit",
                         "quantity":1,
                         "price":159.90,
                         "currency":"USD",
                         "image_url":"http://info.unionleasing.com/hs-fs/hub/371325/file-1922303652-png/Blog_Icons/Payment.png"
+                      },
+                      {
+                        "title":"U.S. Bank - BAL @ 12/02/16 9:28am CT",
+                        "subtitle":"Customer's Account In A4: $382.57  Savings A6: $655.63",
+                        "quantity":1,
+                        "price":0,
+                        "currency":"USD",
+                        "image_url":"https://lh3.ggpht.com/JPaCdWVnY-F8HBcBXvA68MTy-AFnGQPfXcj2MDIEuMSZdkVa0bM92eBcFxoj8EGiACMR=w300"
                       },
                       {
                         "title":"12/01/16 Debit Purc",
@@ -148,7 +148,7 @@ def send_message(recipient_id, message_text):
 def process_message(text,sender_id):
     text=text.lower()
     if "hi" in text:
-        send_message(sender_id, "Hi,How can I help you?")
+        send_message(sender_id, "Hi {{user_first_name}}, welcome to this bot. How can I help you?")
     elif "block" in text:
         if "not" not in text and "dont" not in text and "unblock" not in text:
             send_message(sender_id, "Your card has been blocked successfully.")
