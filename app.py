@@ -87,16 +87,7 @@ def send_message(recipient_id, message_text):
                                     "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
                                     "webview_height_ratio": "tall",
                                     "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                                },
-                                "buttons": [
-                                    {
-                                        "title": "Buy",
-                                        "type": "web_url",
-                                        "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
-                                        "webview_height_ratio": "tall",
-                                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                                    }
-                                ]
+                                }
                             },
                             {
                                 "title": "Classic Blue T-Shirt",
@@ -107,16 +98,7 @@ def send_message(recipient_id, message_text):
                                     "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
                                     "webview_height_ratio": "tall",
                                     "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                                },
-                                "buttons": [
-                                    {
-                                        "title": "Buy",
-                                        "type": "web_url",
-                                        "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-                                        "webview_height_ratio": "tall",
-                                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                                    }
-                                ]
+                                }
                             },
                             {
                                 "title": "Classic Black T-Shirt",
@@ -127,16 +109,7 @@ def send_message(recipient_id, message_text):
                                     "url": "https://peterssendreceiveapp.ngrok.io/view?item=102",
                                     "webview_height_ratio": "tall",
                                     "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                                },
-                                "buttons": [
-                                    {
-                                        "title": "Buy",
-                                        "type": "web_url",
-                                        "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
-                                        "webview_height_ratio": "tall",
-                                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                                    }
-                                ]
+                                }
                             },
                             {
                                 "title": "Classic Gray T-Shirt",
@@ -147,23 +120,7 @@ def send_message(recipient_id, message_text):
                                     "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
                                     "webview_height_ratio": "tall",
                                     "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                                },
-                                "buttons": [
-                                    {
-                                        "title": "Buy",
-                                        "type": "web_url",
-                                        "url": "https://peterssendreceiveapp.ngrok.io/shop?item=103",
-                                        "webview_height_ratio": "tall",
-                                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                                    }
-                                ]
-                            }
-                        ],
-                         "buttons": [
-                            {
-                                "title": "View More",
-                                "type": "postback",
-                                "payload": "payload"
+                                }
                             }
                         ]
                     }
