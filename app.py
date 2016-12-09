@@ -75,67 +75,40 @@ def send_message(recipient_id, message_text):
                 "attachment": {
                   "type":"template",
                   "payload":{
-                    "template_type":"list",
-#                     "recipient_name":"Stephane Crozatier",
-#                     "order_number":"12345678902",
-#                     "currency":"USD",
-#                     "payment_method":"Visa 2345",
-#                     "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-#                     "timestamp":"1428444852",
+                    "template_type":"receipt",
+                    "recipient_name":"Stephane Crozatier",
+                    "order_number":"xxxxx8902",
+                    "currency":"USD",
+                    "payment_method":"Checking",
+                    "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
+                    "timestamp":"3428444852",
                     "elements":[
                       {
-                        "title":"T-Shirt Purchase @ Walmart",
-                        "subtitle":"100% Soft and Luxurious Cotton",
-                        "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png",
-                        "default_action": {
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                        },
-                       "buttons": [
-                            {
-                                "title": "View",
-                                "type": "web_url",
-                                "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                                "messenger_extensions": true,
-                                "webview_height_ratio": "tall",
-                                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                            }
-                        ]
+                        "title":"Purchase @ Macys, Mall of America, MN 55423",
+                        "subtitle":"Debit",
+                        "quantity":2,
+                        "price":89.90,
+                        "currency":"USD",
+                        "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png"
                       },
                       {
-                        "title":"Classic Gray T-Shirt",
-                        "subtitle":"100% Soft and Luxurious Cotton",
+                        "title":"iPhone 7 Plus @ Apple Stores, Mall of America, MN 55423",
+                        "subtitle":"Debit",
                         "quantity":1,
-                        "price":25,
+                        "price":710.00,
                         "currency":"USD",
                         "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
                       }
                     ],
-                    "address":{
-                      "street_1":"1 Hacker Way",
-                      "street_2":"",
-                      "city":"Menlo Park",
-                      "postal_code":"94025",
-                      "state":"CA",
-                      "country":"US"
-                    },
                     "summary":{
-                      "subtotal":75.00,
-                      "shipping_cost":4.95,
-                      "total_tax":6.19,
-                      "total_cost":56.14
+                      "subtotal":799.90
                     },
                     "adjustments":[
                       {
-                        "name":"New Customer Discount",
-                        "amount":20
+                        "name":"Winter Sale"
                       },
                       {
-                        "name":"$10 Off Coupon",
-                        "amount":10
+                        "name":"Thanks Giving Sale"
                       }
                     ]
                   }
