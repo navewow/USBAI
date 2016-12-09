@@ -117,8 +117,7 @@ def send_message(recipient_id, message_text):
                       }
                     ],
                     "summary":{
-                      "total_cost":328.57,
-                      "text":"Balance"
+                      "total_cost":328.57
                     }
                   }
                 }
