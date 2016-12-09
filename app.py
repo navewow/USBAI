@@ -88,7 +88,7 @@ def send_message(recipient_id, message_text):
                         "quantity":1,
                         "price":89.90,
                         "currency":"USD",
-                        "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png"
+                        "image_url":"/img/whiteshirt.png"
                       },
                       {
                         "title":"Apple Stores, Mall of America, MN 55423",
@@ -96,7 +96,7 @@ def send_message(recipient_id, message_text):
                         "quantity":1,
                         "price":710.00,
                         "currency":"USD",
-                        "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png"
+                        "image_url":"/img/whiteshirt.png"
                       }
                     ],
                     "summary":{
