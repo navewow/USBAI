@@ -77,7 +77,7 @@ def send_message(recipient_id, message_text):
                   "payload":{
                     "template_type":"list",
                     "elements":[
-                     {
+                       {
                         "title":"Starbuck, Mall of America, MN 55423",
                         "subtitle":"$29.00 - Debit",
                         "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_cup_6443.png",
@@ -98,11 +98,11 @@ def send_message(recipient_id, message_text):
                                 "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                             }
                          ]
-                     },
-                     {
-                        "title":"Starbucks, Mall of America, MN 55423",
-                        "subtitle":"$20.00 - Debit",
-                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_hotdog_6443.png",
+                       },
+                       {
+                        "title":"Starbuck, Mall of America, MN 55423",
+                        "subtitle":"$29.00 - Debit",
+                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_cup_6443.png",
                         "default_action": {
                             "type": "web_url",
                             "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
@@ -120,15 +120,8 @@ def send_message(recipient_id, message_text):
                                 "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                             }
                          ]
-                     }
-                    ],
-                     "buttons": [
-                        {
-                            "title": "View More",
-                            "type": "postback",
-                            "payload": "payload"
-                        }
-                     ]
+                       }
+                    ]
                   }
                 }
             }
