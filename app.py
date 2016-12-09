@@ -77,27 +77,26 @@ def send_message(recipient_id, message_text):
                   "payload":{
                     "template_type":"receipt",
                     "recipient_name":"Stephane Crozatier",
-                    "order_number":"12345678902",
+                    "order_number":"xxx9902",
                     "currency":"USD",
                     "payment_method":"Checking",
-                    "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
                     "timestamp":"1428444852",
                     "elements":[
                       {
-                        "title":"Purchase @ Macys, Mall of America, MN 55423",
-                        "subtitle":"Debit",
-                        "quantity":2,
+                        "title":"Macys, Mall of America, MN 55423",
+                        "subtitle":"$89.90 - Debit",
+                        "quantity":1,
                         "price":89.90,
                         "currency":"USD",
-                        "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png"
+                        "image_url":"img/cart.png"
                       },
                       {
-                        "title":"iPhone 7 Plus @ Apple Stores, Mall of America, MN 55423",
-                        "subtitle":"Debit",
+                        "title":"Apple Stores, Mall of America, MN 55423",
+                        "subtitle":"$710.00 - Debit",
                         "quantity":1,
                         "price":710.00,
                         "currency":"USD",
-                        "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
+                        "image_url":"img/money.png"
                       }
                     ],
                     "summary":{
