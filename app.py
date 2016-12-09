@@ -75,41 +75,60 @@ def send_message(recipient_id, message_text):
                 "attachment": {
                   "type":"template",
                   "payload":{
-                    "template_type":"receipt",
-                    "recipient_name":"Stephane Crozatier",
-                    "order_number":"12345678902",
-                    "currency":"USD",
-                    "payment_method":"Checking",
-                    "timestamp":"1428444852",
+                    "template_type":"list",
                     "elements":[
-                      {
+                     {
                         "title":"Starbuck, Mall of America, MN 55423",
                         "subtitle":"$29.00 - Debit",
-                        "quantity":1,
-                        "price":19.00,
-                        "currency":"USD",
-                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_cup_6443.png"
-                      },
-                      {
-                        "title":"iMax, Mall of America, MN 55423",
-                        "subtitle":"$70.00 - Debit",
-                        "quantity":1,
-                        "price":70.00,
-                        "currency":"USD",
-                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_tix_6443.png"
-                      },
-                      {
+                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_cup_6443.png",
+                        "default_action": {
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                        },
+                        "buttons": [
+                            {
+                                "title": "View",
+                                "type": "web_url",
+                                "url": "https://peterssendreceiveapp.ngrok.io/collection",
+                                "messenger_extensions": true,
+                                "webview_height_ratio": "tall",
+                                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                            }
+                         ]
+                     },
+                     {
                         "title":"Starbucks, Mall of America, MN 55423",
                         "subtitle":"$20.00 - Debit",
-                        "quantity":1,
-                        "price":20.00,
-                        "currency":"USD",
-                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_hotdog_6443.png"
-                      }
+                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_hotdog_6443.png",
+                        "default_action": {
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                        },
+                        "buttons": [
+                            {
+                                "title": "View",
+                                "type": "web_url",
+                                "url": "https://peterssendreceiveapp.ngrok.io/collection",
+                                "messenger_extensions": true,
+                                "webview_height_ratio": "tall",
+                                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                            }
+                         ]
+                     },
                     ],
-                    "summary":{
-                      "total_cost":99.00
-                    }
+                    "buttons": [
+                        {
+                            "title": "View More",
+                            "type": "postback",
+                            "payload": "payload"
+                        }
+                    ]
                   }
                 }
             }
