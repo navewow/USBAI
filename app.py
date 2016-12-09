@@ -80,7 +80,7 @@ def send_message(recipient_id, message_text):
                       {
                         "title":"U.S. Bank Checking Account",
                         "image_url":"https://petersfancybrownhats.com/company_image.png",
-                        "subtitle":"BAL @ 12/02/16 9:28am CT\nCustomer's Account In A4: $382.57\nSavings A6: $655.63"
+                        "subtitle":"BAL @ 12/02/16 9:28am CT\\nCustomer's Account In A4: $382.57\\nSavings A6: $655.63"
                       },
                       {
                         "title":"Transaction History",
