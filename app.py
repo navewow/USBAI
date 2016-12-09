@@ -87,7 +87,7 @@ def send_message(recipient_id, message_text):
                         "title":"Purchase @ Macys, Mall of America, MN 55423",
                         "subtitle":"Debit",
                         "quantity":2,
-                        "price":89.90,
+                        "price":89,
                         "currency":"USD",
                         "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png"
                       },
@@ -95,13 +95,13 @@ def send_message(recipient_id, message_text):
                         "title":"iPhone 7 Plus @ Apple Stores, Mall of America, MN 55423",
                         "subtitle":"Debit",
                         "quantity":1,
-                        "price":710.00,
+                        "price":710,
                         "currency":"USD",
                         "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
                       }
                     ],
                     "summary":{
-                      "subtotal":799.90
+                      "subtotal":799
                     },
                     "adjustments":[
                       {
