@@ -87,7 +87,7 @@ def send_message(recipient_id, message_text):
                         "title":"Purchase @ Macys, Mall of America, MN 55423",
                         "subtitle":"Debit",
                         "quantity":2,
-                        "price":89,
+                        "price":89.90,
                         "currency":"USD",
                         "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png"
                       },
@@ -95,35 +95,14 @@ def send_message(recipient_id, message_text):
                         "title":"iPhone 7 Plus @ Apple Stores, Mall of America, MN 55423",
                         "subtitle":"Debit",
                         "quantity":1,
-                        "price":710,
+                        "price":710.00,
                         "currency":"USD",
                         "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
                       }
                     ],
-                    "address":{
-                      "street_1":"1 Hacker Way",
-                      "street_2":"",
-                      "city":"Menlo Park",
-                      "postal_code":"94025",
-                      "state":"CA",
-                      "country":"US"
-                    },
                     "summary":{
-                      "subtotal":75.00,
-                      "shipping_cost":4.95,
-                      "total_tax":6.19,
-                      "total_cost":56.14
-                    },
-                    "adjustments":[
-                      {
-                        "name":"Winter Sale",
-                        "amount":20
-                      },
-                      {
-                        "name":"Thanks Giving Sale",
-                        "amount":10
-                      }
-                    ]
+                      "total_cost":799.90
+                    }
                   }
                 }
             }
