@@ -83,24 +83,32 @@ def send_message(recipient_id, message_text):
                     "timestamp":"1428444852",
                     "elements":[
                       {
-                        "title":"Macys, Mall of America, MN 55423",
-                        "subtitle":"$89.90 - Debit",
+                        "title":"Starbuck, Mall of America, MN 55423",
+                        "subtitle":"$29.00 - Debit",
                         "quantity":1,
-                        "price":89.90,
+                        "price":19.00,
                         "currency":"USD",
-                        "image_url":"/img/whiteshirt.png"
+                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_cup_6443.png"
                       },
                       {
-                        "title":"Apple Stores, Mall of America, MN 55423",
-                        "subtitle":"$710.00 - Debit",
+                        "title":"iMax, Mall of America, MN 55423",
+                        "subtitle":"$70.00 - Debit",
                         "quantity":1,
-                        "price":710.00,
+                        "price":70.00,
                         "currency":"USD",
-                        "image_url":"/img/whiteshirt.png"
+                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_tix_6443.png"
+                      },
+                      {
+                        "title":"Starbucks, Mall of America, MN 55423",
+                        "subtitle":"$20.00 - Debit",
+                        "quantity":1,
+                        "price":20.00,
+                        "currency":"USD",
+                        "image_url":"https://www.usbank.com/includes/images/icons/visa_icon_hotdog_6443.png"
                       }
                     ],
                     "summary":{
-                      "total_cost":799.90
+                      "total_cost":99.00
                     }
                   }
                 }
