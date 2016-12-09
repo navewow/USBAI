@@ -81,7 +81,7 @@ def send_message(recipient_id, message_text):
                     "currency":"USD",
                     "payment_method":"Checking",
                     "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-                    "timestamp":"3428444852",
+                    "timestamp":"1428444852",
                     "elements":[
                       {
                         "title":"Purchase @ Macys, Mall of America, MN 55423",
