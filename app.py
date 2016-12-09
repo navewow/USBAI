@@ -85,7 +85,7 @@ def send_message(recipient_id, message_text):
                     "elements":[
                       {
                         "title":"U.S. Bank",
-                        "subtitle":"BAL @ 12/02/16 9:28am CT\nCustomer's Account In A4: $382.57 \nSavings A6: $655.63",
+                        "subtitle":"BAL @ 12/02/16 9:28am CT\\nCustomer's Account In A4: $382.57 \\nnSavings A6: $655.63",
                         "quantity":1,
                         "price":0,
                         "currency":"USD",
@@ -125,7 +125,7 @@ def send_message(recipient_id, message_text):
                       }
                     ],
                     "summary":{
-                      "total_cost":756.14
+                      "total_cost":328.57
                     }
                   }
                 }
