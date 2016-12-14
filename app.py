@@ -71,7 +71,7 @@ def send_message(recipient_id, message_text):
     headers = {
         "Content-Type": "application/json"
     }
-    if "template" in message_text:
+    if "template" in message_text or "balance_check" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -176,7 +176,7 @@ def send_message(recipient_id, message_text):
                           {
                             "type":"postback",
                             "payload":"continue",
-                            "title":"Customer's Account In A4:" + " $382.57"
+                            "title":"Checking A4:" + " $382.57"
                           },
                           {
                             "type":"postback",
