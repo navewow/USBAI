@@ -149,19 +149,20 @@ def send_message(recipient_id, message_text):
     return r.status_code;
 
 def process_message(text,sender_id):
-    text=text.lower()
-    words=word_tokenize(text)
-    tokens=nltk.word_tokenize(text)
-    tagged=nltk.pos_tag(tokens)
-    entities=nltk.ne_chunk(tagged)
-    print words
-    for w in words:
-        if(ps.stem(w).lower()=='enrol'):
-                if 'online' in str(words).lower() and 'banking' in str(words).lower():
-                        output='Enroll to online banking at https://www.newgenbank.com/enroll/olb'
-                if(ps.stem(w).lower()=='block'):
-                        if 'my' in str(words).lower() and 'card' in str(words).lower():
-                                output="Card has been blocked"
+        text=text.lower()
+        output='How may i help you?'
+        words=word_tokenize(js)
+        tokens=nltk.word_tokenize(jsonData)
+        tagged=nltk.pos_tag(tokens)
+        entities=nltk.ne_chunk(tagged)
+        print words
+        for w in words:             
+                if(ps.stem(w).lower()=='enrol'):
+                        if 'online' in str(words).lower() and 'banking' in str(words).lower():
+                                output='Enroll to online banking at https://www.newgenbank.com/enroll/olb'
+                        if(ps.stem(w).lower()=='block'):
+                                if 'my' in str(words).lower() and 'card' in str(words).lower():
+                                        output="Card has been blocked"
         send_message(sender_id, output)
 ##    if "hi" in text:
 ##        send_message(sender_id, "Hi, How Can I help you?")
