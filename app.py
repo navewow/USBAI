@@ -150,12 +150,12 @@ def send_message(recipient_id, message_text):
 
 def process_message(text,sender_id):
     text=text.lower()
-    words=word_tokenize(jsonData)
-    tokens=nltk.word_tokenize(jsonData)
+    words=word_tokenize(text)
+    tokens=nltk.word_tokenize(text)
     tagged=nltk.pos_tag(tokens)
     entities=nltk.ne_chunk(tagged)
     print words
-    for w in words:             
+    for w in words:
         if(ps.stem(w).lower()=='enrol'):
                 if 'online' in str(words).lower() and 'banking' in str(words).lower():
                         output='Enroll to online banking at https://www.newgenbank.com/enroll/olb'
