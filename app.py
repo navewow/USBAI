@@ -126,7 +126,7 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
-    elif "Level1" in text:
+    elif "Level1" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -182,7 +182,7 @@ def send_message(recipient_id, message_text):
 
 def process_message(text,sender_id):
         text=text.lower()
-        output='Level1'
+        output="Level1"
         ps = PorterStemmer()
         words=word_tokenize(text)
         tokens=nltk.word_tokenize(text)
