@@ -165,6 +165,43 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
+    elif "transaction_related2" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                     {
+                         "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                         "buttons":[
+                             {
+                                "type":"postback",
+                                "title":"Checking A4:" + " $382.57",
+                                "payload":"Main Menu"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"Savings A6:" +" $655.63",
+                                "payload":"Main Menu"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"Show my transactions",
+                                "payload":"transaction_related"
+                             }
+                           ]
+                     }
+                    ]
+                  }
+                }
+            }
+        })
+
     elif "Level1" in message_text or "Main Menu" in message_text:
         data = json.dumps({
             "recipient": {
