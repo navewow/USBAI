@@ -126,6 +126,38 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
+    elif "Level1" in text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"button",
+                    "text":"What do you want to do next?",
+                    "buttons":[
+                      {
+                        "type":"postback",
+                        "payload":"balance_enquiry",
+                        "title":"Balance Check"
+                      },
+                      {
+                        "type":"postback",
+                        "title":"Transaction Related",
+                        "payload":"transaction_related"
+                      },
+                      {
+                        "type":"postback",
+                        "title":"Card Related",
+                        "payload":"card_related"
+                      }
+                    ]
+                  }
+                }
+            }
+        })
     else:
         data = json.dumps({
             "recipient": {
@@ -150,7 +182,7 @@ def send_message(recipient_id, message_text):
 
 def process_message(text,sender_id):
         text=text.lower()
-        output='How may i help you?'
+        output='Level1'
         ps = PorterStemmer()
         words=word_tokenize(text)
         tokens=nltk.word_tokenize(text)
