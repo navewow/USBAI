@@ -71,7 +71,7 @@ def send_message(recipient_id, message_text):
     headers = {
         "Content-Type": "application/json"
     }
-    if "template" in message_text or "balance_check" in message_text:
+    if "template" in message_text or "transaction_related" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
