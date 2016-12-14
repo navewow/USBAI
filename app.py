@@ -73,7 +73,7 @@ def send_message(recipient_id, message_text):
     headers = {
         "Content-Type": "application/json"
     }
-    if "transaction_related" in message_text:
+    if "transaction_related" == message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -130,7 +130,7 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
-    elif "Level1" in message_text:
+    elif "Level1" == message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -162,7 +162,7 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
-    elif "balance_check" in message_text:
+    elif "balance_check" == message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
