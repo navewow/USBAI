@@ -73,7 +73,7 @@ def send_message(recipient_id, message_text):
     headers = {
         "Content-Type": "application/json"
     }
-    if "transaction_related" in message_text:
+    if "transaction_related_receipt" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -130,6 +130,36 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
+    elif "transaction_related" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                        {"title":"Transaction History A4 as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT"},
+                        {"title":"12/01/16 Web Author" + " -$159.90"},
+                        {"title":"12/01/16 Debit Purc" + " -$19.98"},
+                        {"title":"12/02/16 Electronic" + " +$856.45"},
+                        {
+                        "title":"What Next?",
+                            "buttons":[
+                              {
+                                "type":"postback",
+                                "title":"Go to Main Menu",
+                                "payload":"Main Menu"
+                              }
+                            ]
+                        }
+                    ]
+                  }
+                }
+            }
+        })
     elif "Level1" in message_text:
         data = json.dumps({
             "recipient": {
@@ -172,26 +202,21 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"generic",
-                    "elements":[{
-                        "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
-                        "buttons":[
-                          {
-                            "type":"postback",
-                            "payload":"continue",
-                            "title":"Checking A4:" + " $382.57"
-                          },
-                          {
-                            "type":"postback",
-                            "title":"Savings A6:" +" $655.63",
-                            "payload":"continue"
-                          },
-                          {
-                            "type":"postback",
-                            "title":"Show my transactions",
-                            "payload":"last_transaction"
-                          }
-                        ]
-                    }]
+                    "elements":[
+                        {"title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT"},
+                        {"title":"Checking A4:" + " $382.57"},
+                        {"title":"Savings A6:" +" $655.63"},
+                        {
+                        "title":"What next?",
+                            "buttons":[
+                              {
+                                "type":"postback",
+                                "title":"Show my transactions",
+                                "payload":"transaction_related"
+                              }
+                            ]
+                        }
+                    ]
                   }
                 }
             }
