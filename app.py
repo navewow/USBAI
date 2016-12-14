@@ -140,22 +140,27 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"generic",
-                    "elements":[
-                        {"title":"Transaction History A4 as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT"},
-                        {"title":"12/01/16 Web Author" + " -$159.90"},
-                        {"title":"12/01/16 Debit Purc" + " -$19.98"},
-                        {"title":"12/02/16 Electronic" + " +$856.45"},
-                        {
-                        "title":"What Next?",
-                            "buttons":[
-                              {
+                    "elements":[{
+                        "title":"Transaction History A4 as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "buttons":[{
+                                "type":"postback",
+                                "title":"12/01/16 Web Author" + " -$159.90",
+                                "payload":"Main Menu"
+                            },{
+                                "type":"postback",
+                                "title":"12/01/16 Debit Purc" + " -$19.98",
+                                "payload":"Main Menu"
+                            },{
+                                "type":"postback",
+                                "title":"12/02/16 Electronic" + " +$856.45",
+                                "payload":"Main Menu"
+                            },{
                                 "type":"postback",
                                 "title":"Go to Main Menu",
                                 "payload":"Main Menu"
-                              }
-                            ]
-                        }
-                    ]
+                            }
+                        ]
+                    }]
                   }
                 }
             }
@@ -203,19 +208,26 @@ def send_message(recipient_id, message_text):
                   "payload":{
                     "template_type":"generic",
                     "elements":[
-                        {"title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT"},
-                        {"title":"Checking A4:" + " $382.57"},
-                        {"title":"Savings A6:" +" $655.63"},
-                        {
-                        "title":"What next?",
-                            "buttons":[
-                              {
+                     {
+                         "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                         "buttons":[
+                             {
+                                "type":"postback",
+                                "title":"Checking A4:" + " $382.57",
+                                "payload":"transaction_related"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"Savings A6:" +" $655.63",
+                                "payload":"transaction_related"
+                             },
+                             {
                                 "type":"postback",
                                 "title":"Show my transactions",
                                 "payload":"transaction_related"
-                              }
-                            ]
-                        }
+                             }
+                           ]
+                     }
                     ]
                   }
                 }
