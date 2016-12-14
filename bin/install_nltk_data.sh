@@ -13,7 +13,6 @@ echo "-----> Starting nltk data installation"
 # so you may want to change for your specific needs.
 # See http://www.nltk.org/data.html
 python -m nltk.downloader averaged_perceptron_tagger
-python -m nltk.downloader averaged_perceptron_tagger
 python -m nltk.downloader maxent_ne_chunker
 python -m nltk.downloader maxent_treebank_pos_tagger
 python -m nltk.downloader punkt
