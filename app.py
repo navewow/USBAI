@@ -5,6 +5,7 @@ import json
 import requests
 import urllib2
 from flask import Flask, request
+from datetime import datetime
 import nltk
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
@@ -136,11 +137,11 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"button",
-                    "text":"What do you want to do next?",
+                    "text":"What do you want to do?",
                     "buttons":[
                       {
                         "type":"postback",
-                        "payload":"balance_enquiry",
+                        "payload":"balance_check",
                         "title":"Balance Check"
                       },
                       {
@@ -154,6 +155,40 @@ def send_message(recipient_id, message_text):
                         "payload":"card_related"
                       }
                     ]
+                  }
+                }
+            }
+        })
+    elif "balance_check" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[{
+                        "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "buttons":[
+                          {
+                            "type":"postback",
+                            "payload":"continue",
+                            "title":"Customer's Account In A4:" + " $382.57"
+                          },
+                          {
+                            "type":"postback",
+                            "title":"Savings A6:" +" $655.63",
+                            "payload":"continue"
+                          },
+                          {
+                            "type":"postback",
+                            "title":"Show my transactions",
+                            "payload":"last_transaction"
+                          }
+                        ]
+                    }]
                   }
                 }
             }
@@ -204,6 +239,8 @@ def process_message(text,sender_id):
                             output="Your last transaction has been cancelled"
                         elif 'last' in str(words).lower():
                             output="template"
+                if(ps.stem(w).lower()=='balance_check'):
+                        output="balance_check"
         send_message(sender_id, output)
 ##    if "hi" in text:
 ##        send_message(sender_id, "Hi, How Can I help you?")
