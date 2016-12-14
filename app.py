@@ -5,6 +5,9 @@ import json
 import requests
 import urllib2
 from flask import Flask, request
+import nltk
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
 
 app = Flask(__name__)
 
@@ -147,25 +150,38 @@ def send_message(recipient_id, message_text):
 
 def process_message(text,sender_id):
     text=text.lower()
-    if "hi" in text:
-        send_message(sender_id, "Hi, How Can I help you?")
-    elif "block" in text:
-        if "not" not in text and "dont" not in text and "unblock" not in text:
-            send_message(sender_id, "Your card has been blocked successfully.")
-        else:
-            send_message(sender_id, "Your card will not be blocked.")
-    elif "activate" in text and "card" in text:
-        send_message(sender_id, "Card has been Activated")
-    elif "last" in text and "transaction" in text:
-        send_message(sender_id, "Sure. One moment...")
-        send_message(sender_id, "template")
-    elif "cancel" in text and "transaction" in text:
-           if "not" not in text and "dont" not in text:
-               send_message(sender_id, "Your last transaction has been cancelled")
-           else:
-               send_message(sender_id, "Your last transaction will not be cancelled")
-    else:
-        send_message(sender_id, "Sorry.I am not able to understand.I'll call you")
+    words=word_tokenize(jsonData)
+    tokens=nltk.word_tokenize(jsonData)
+    tagged=nltk.pos_tag(tokens)
+    entities=nltk.ne_chunk(tagged)
+    print words
+    for w in words:             
+        if(ps.stem(w).lower()=='enrol'):
+                if 'online' in str(words).lower() and 'banking' in str(words).lower():
+                        output='Enroll to online banking at https://www.newgenbank.com/enroll/olb'
+                if(ps.stem(w).lower()=='block'):
+                        if 'my' in str(words).lower() and 'card' in str(words).lower():
+                                output="Card has been blocked"
+        send_message(sender_id, output)
+##    if "hi" in text:
+##        send_message(sender_id, "Hi, How Can I help you?")
+##    elif "block" in text:
+##        if "not" not in text and "dont" not in text and "unblock" not in text:
+##            send_message(sender_id, "Your card has been blocked successfully.")
+##        else:
+##            send_message(sender_id, "Your card will not be blocked.")
+##    elif "activate" in text and "card" in text:
+##        send_message(sender_id, "Card has been Activated")
+##    elif "last" in text and "transaction" in text:
+##        send_message(sender_id, "Sure. One moment...")
+##        send_message(sender_id, "template")
+##    elif "cancel" in text and "transaction" in text:
+##           if "not" not in text and "dont" not in text:
+##               send_message(sender_id, "Your last transaction has been cancelled")
+##           else:
+##               send_message(sender_id, "Your last transaction will not be cancelled")
+##    else:
+##        send_message(sender_id, "Sorry.I am not able to understand.I'll call you")
 
 
 
