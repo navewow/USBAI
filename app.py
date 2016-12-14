@@ -160,10 +160,18 @@ def process_message(text,sender_id):
         for w in words:
                 if(ps.stem(w).lower()=='enrol'):
                         if 'online' in str(words).lower() and 'banking' in str(words).lower():
-                                output='Enroll to online banking at https://www.newgenbank.com/enroll/olb'
-                        if(ps.stem(w).lower()=='block'):
-                                if 'my' in str(words).lower() and 'card' in str(words).lower():
-                                        output="Card has been blocked"
+                            output='Enroll to online banking at https://www.usbank.com/index.html'
+                if(ps.stem(w).lower()=='block'):
+                        if 'my' in str(words).lower() and 'card' in str(words).lower():
+                            output="Card has been blocked"
+                if(ps.stem(w).lower()=='activate'):
+                        if 'my' in str(words).lower() and 'card' in str(words).lower():
+                            output="Card has been Activated"
+                if(ps.stem(w).lower()=='transaction'):
+                        if 'cancel' in str(words).lower():
+                            output="Your last transaction has been cancelled"
+                        elif 'last' in str(words).lower():
+                            output="template"
         send_message(sender_id, output)
 ##    if "hi" in text:
 ##        send_message(sender_id, "Hi, How Can I help you?")
