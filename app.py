@@ -73,7 +73,7 @@ def send_message(recipient_id, message_text):
     headers = {
         "Content-Type": "application/json"
     }
-    if "transaction_related_receipt" in message_text:
+    if "transaction_receipt" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -165,7 +165,7 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
-    elif "Level1" in message_text:
+    elif "Level1" in message_text or "Main Menu" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -214,12 +214,12 @@ def send_message(recipient_id, message_text):
                              {
                                 "type":"postback",
                                 "title":"Checking A4:" + " $382.57",
-                                "payload":"transaction_related"
+                                "payload":"Main Menu"
                              },
                              {
                                 "type":"postback",
                                 "title":"Savings A6:" +" $655.63",
-                                "payload":"transaction_related"
+                                "payload":"Main Menu"
                              },
                              {
                                 "type":"postback",
