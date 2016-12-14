@@ -71,7 +71,7 @@ def send_message(recipient_id, message_text):
     headers = {
         "Content-Type": "application/json"
     }
-    if "template" in message_text or "transaction_related" in message_text:
+    if "transaction_related" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -239,7 +239,7 @@ def process_message(text,sender_id):
                         if 'cancel' in str(words).lower():
                             output="Your last transaction has been cancelled"
                         elif 'last' in str(words).lower():
-                            output="template"
+                            output="transaction_related"
                 if(ps.stem(w).lower()=='balance_check'):
                         output="balance_check"
         send_message(sender_id, output)
