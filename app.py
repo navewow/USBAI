@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @AlaguSaranya94
- Watch 0
-  Star 0
-  Fork 109 AlaguSaranya94/fb-messenger-bot
-forked from hartleybrody/fb-messenger-bot
- Code  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
-Tree: fdc3ae9fe3 Find file Copy pathfb-messenger-bot/app.py
-fdc3ae9  5 days ago
-@AlaguSaranya94 AlaguSaranya94 hh
-3 contributors @AlaguSaranya94 @hartleybrody @stevenschmatz
-RawBlameHistory     
-179 lines (151 sloc)  6.59 KB
 import os
 import sys
 import json
