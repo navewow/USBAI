@@ -151,8 +151,8 @@ def send_message(recipient_id, message_text):
 def process_message(text,sender_id):
         text=text.lower()
         output='How may i help you?'
-        words=word_tokenize(js)
-        tokens=nltk.word_tokenize(jsonData)
+        words=word_tokenize(text)
+        tokens=nltk.word_tokenize(text)
         tagged=nltk.pos_tag(tokens)
         entities=nltk.ne_chunk(tagged)
         print words
