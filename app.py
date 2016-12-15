@@ -119,12 +119,12 @@ def send_message(recipient_id, message_text):
                     "buttons":[
                       {
                         "type":"postback",
-                        "title":"Balance Check",
+                        "title":"12/01/16 Web Author" + " -$159.90",
                         "payload":"transaction_history"
                       },
                       {
                         "type":"postback",
-                        "title":"Transaction History",
+                        "title":"12/01/16 Debit Purc" +" -$19.98",
                         "payload":"transaction_history"
                       },
                       {
