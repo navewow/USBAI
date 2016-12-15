@@ -351,8 +351,6 @@ def process_message(text,sender_id):
                             output="transaction_receipt"
                 elif(ps.stem(w).lower()=='balance_check'):
                         output="balance_check"
-                else:
-                    output="Sorry I can't understand. We will call you."
         send_message(sender_id, output)
 
 
