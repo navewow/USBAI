@@ -304,13 +304,22 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
+    elif "activate" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "text":"Card has been Activated"
+            }
+        })
     else:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
             },
             "message": {
-                "text": "What do you want to do?"
+                "text": "How may i help you?"
             }
         })
     print data
