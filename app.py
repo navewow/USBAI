@@ -131,11 +131,6 @@ def send_message(recipient_id, message_text):
                         "type":"postback",
                         "title":"12/02/16 Electronic" + " $856.45 Cr",
                         "payload":"Main Menu"
-                      },
-                      {
-                        "type":"postback",
-                        "title":"Card Related Operations",
-                        "payload":"card_related"
                       }
                     ]
                   }
