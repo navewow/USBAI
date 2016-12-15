@@ -93,7 +93,7 @@ def send_message(recipient_id, message_text):
                       {
                         "type":"postback",
                         "title":"Transaction History",
-                        "payload":"balance_check"
+                        "payload":"transaction_history"
                       },
                       {
                         "type":"postback",
@@ -173,7 +173,7 @@ def send_message(recipient_id, message_text):
                              {
                                 "type":"postback",
                                 "title":"Show my transactions",
-                                "payload":"transaction_history"
+                                "payload":"transaction_receipt"
                              }
                            ]
                      }
