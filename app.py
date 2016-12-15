@@ -114,24 +114,28 @@ def send_message(recipient_id, message_text):
                 "attachment":{
                   "type":"template",
                   "payload":{
-                    "template_type":"button",
-                    "text":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
-                    "buttons":[
-                      {
-                        "type":"postback",
-                        "title":"12/01/16 Web Author" + " $159.90",
-                        "payload":"Main Menu"
-                      },
-                      {
-                        "type":"postback",
-                        "title":"12/01/16 Debit Purc" +" $19.98",
-                        "payload":"Main Menu"
-                      },
-                      {
-                        "type":"postback",
-                        "title":"12/02/16 Electronic" + " $856.45 Cr",
-                        "payload":"Main Menu"
-                      }
+                    "template_type":"generic",
+                    "elements":[
+                     {
+                        "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "buttons":[
+                          {
+                            "type":"postback",
+                            "title":"12/01/16 Web Author" + " $159.90",
+                            "payload":"Main Menu"
+                          },
+                          {
+                            "type":"postback",
+                            "title":"12/01/16 Debit Purc" +" $19.98",
+                            "payload":"Main Menu"
+                          },
+                          {
+                            "type":"postback",
+                            "title":"12/02/16 Electronic" + " $856.45 Cr",
+                            "payload":"Main Menu"
+                          }
+                        ]
+                     }
                     ]
                   }
                 }
