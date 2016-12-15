@@ -88,7 +88,7 @@ def send_message(recipient_id, message_text):
                       {
                         "type":"postback",
                         "title":"Balance Check",
-                        "payload":"transaction_history"
+                        "payload":"balance_check"
                       },
                       {
                         "type":"postback",
@@ -120,12 +120,17 @@ def send_message(recipient_id, message_text):
                       {
                         "type":"postback",
                         "title":"12/01/16 Web Author" + " -$159.90",
-                        "payload":"transaction_history"
+                        "payload":"Main Menu"
                       },
                       {
                         "type":"postback",
                         "title":"12/01/16 Debit Purc" +" -$19.98",
-                        "payload":"transaction_history"
+                        "payload":"Main Menu"
+                      },
+                      {
+                        "type":"postback",
+                        "title":"12/02/16 Electronic" + "+$856.45",
+                        "payload":"Main Menu"
                       },
                       {
                         "type":"postback",
