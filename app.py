@@ -87,13 +87,13 @@ def send_message(recipient_id, message_text):
                     "buttons":[
                       {
                         "type":"postback",
-                        "payload":"balance_check",
-                        "title":"Balance Check"
+                        "title":"Balance Check",
+                        "payload":"balance_check"
                       },
                       {
                         "type":"postback",
                         "title":"Transaction History",
-                        "payload":"transaction_history"
+                        "payload":"balance_check"
                       },
                       {
                         "type":"postback",
