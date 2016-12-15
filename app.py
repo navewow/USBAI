@@ -17,6 +17,9 @@ app = Flask(__name__)
 def verify():
     # when the endpoint is registered as a webhook, it must echo back
     # the 'hub.challenge' value it receives in the query arguments
+
+    pretty_print(request);
+
     token = request.args.get('hub.verify_token')
     if token == "123":
         return request.args.get('hub.challenge')
@@ -29,12 +32,9 @@ def webhook():
 
     # endpoint for processing incoming messaging events
     data = request.get_json()
-##  print data
+
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
-##  value=request.data
-##  jsonResponse=json.loads(value)
-##  jsonData=jsonResponse["message"]["text"]
-##  print jsonData
+
     if data["object"] == "page":
 
         for entry in data["entry"]:
@@ -300,7 +300,7 @@ def send_message(recipient_id, message_text):
                      }
                     ]
                   }
-                  
+
                 }
             }
         })
@@ -323,13 +323,6 @@ def send_message(recipient_id, message_text):
             }
         })
     print data
-##  value=request.data
-##  output=''
-##  jsonResponse=json.loads(data)
-##  jsonData = jsonResponse['message']['text']
-##  if ("block" in jsonData.lower()):
-##      output='card blocked'
-##  print output
 
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
 
@@ -352,7 +345,6 @@ def process_message(text,sender_id):
                         if 'my' in str(words).lower() and 'card' in str(words).lower():
                             output="Card has been blocked"
                 if(ps.stem(w).lower()=='activate'):
-##                        if 'my' in str(words).lower() and 'card' in str(words).lower():
                             output="Card has been Activated"
                 if(ps.stem(w).lower()=='transaction'):
                         if 'cancel' in str(words).lower():
@@ -362,25 +354,6 @@ def process_message(text,sender_id):
                 if(ps.stem(w).lower()=='balance_check'):
                         output="balance_check"
         send_message(sender_id, output)
-##    if "hi" in text:
-##        send_message(sender_id, "Hi, How Can I help you?")
-##    elif "block" in text:
-##        if "not" not in text and "dont" not in text and "unblock" not in text:
-##            send_message(sender_id, "Your card has been blocked successfully.")
-##        else:
-##            send_message(sender_id, "Your card will not be blocked.")
-##    elif "activate" in text and "card" in text:
-##        send_message(sender_id, "Card has been Activated")
-##    elif "last" in text and "transaction" in text:
-##        send_message(sender_id, "Sure. One moment...")
-##        send_message(sender_id, "template")
-##    elif "cancel" in text and "transaction" in text:
-##           if "not" not in text and "dont" not in text:
-##               send_message(sender_id, "Your last transaction has been cancelled")
-##           else:
-##               send_message(sender_id, "Your last transaction will not be cancelled")
-##    else:
-##        send_message(sender_id, "Sorry.I am not able to understand.I'll call you")
 
 
 
@@ -388,6 +361,13 @@ def log(message):  # simple wrapper for logging to stdout on heroku
     print str(message)
     sys.stdout.flush()
 
+def pretty_print(req):
+    log('{}\n{}\n{}\n\n{}'.format(
+        '-----------START-----------',
+        req.method + ' ' + req.url,
+        '\n'.join('{}: {}'.format(k, v) for k, v in req.headers.items()),
+        req.body,
+    ))
 
 if __name__ == '__main__':
     app.run(debug=True)
