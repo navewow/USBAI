@@ -73,7 +73,116 @@ def send_message(recipient_id, message_text):
     headers = {
         "Content-Type": "application/json"
     }
-    if "transaction_receipt" in message_text:
+    if "Level-1-Menu" in message_text or "Main Menu" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"button",
+                    "text":"What do you want to do?",
+                    "buttons":[
+                      {
+                        "type":"postback",
+                        "payload":"balance_check",
+                        "title":"Balance Check"
+                      },
+                      {
+                        "type":"postback",
+                        "title":"Transaction History",
+                        "payload":"transaction_history"
+                      },
+                      {
+                        "type":"postback",
+                        "title":"Card Related Operations",
+                        "payload":"card_related"
+                      }
+                    ]
+                  }
+                }
+            }
+        })
+    elif "transaction_history" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                     {
+                         "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                         "buttons":[
+                             {
+                                "type":"postback",
+                                "title":"12/01/16 Web Author" + " -$159.90",
+                                "payload":"Main Menu"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"12/01/16 Debit Purc" +" -$19.98",
+                                "payload":"Main Menu"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"12/02/16 Electronic" + "+$856.45",
+                                "payload":"Main Menu"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"12/01/16 Debit Purc" +" -$19.98",
+                                "payload":"Main Menu"
+                             }
+                           ]
+                     }
+                    ]
+                  }
+                }
+            }
+        })
+    elif "balance_check" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                     {
+                         "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                         "buttons":[
+                             {
+                                "type":"postback",
+                                "title":"Checking A4:" + " $382.57",
+                                "payload":"Main Menu"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"Savings A6:" +" $655.63",
+                                "payload":"Main Menu"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"Show my transactions",
+                                "payload":"transaction_history"
+                             }
+                           ]
+                     }
+                    ]
+                  }
+                }
+            }
+        })
+    elif "transaction_receipt" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -130,118 +239,6 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
-    elif "transaction_related" in message_text:
-        data = json.dumps({
-            "recipient": {
-                "id": recipient_id
-            },
-            "message": {
-                "attachment":{
-                  "type":"template",
-                  "payload":{
-                    "template_type":"generic",
-                    "elements":[
-                      {
-                        "title":"Transaction History A4 as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
-                        "buttons":[
-                            {
-                                "type":"postback",
-                                "title":"Web Author",
-                                #"title":"12/01/16 Web Author" + " -$159.90",
-                                "payload":"Main Menu"
-                            },
-                            {
-                                "type":"postback",
-                                "title":"Debit Purc",
-                                #"title":"12/01/16 Debit Purc" + " -$19.98",
-                                "payload":"Main Menu"
-                            },
-                            {
-                                "type":"postback",
-                                "title":"Electronic",
-                                #"title":"12/02/16 Electronic" + " +$856.45",
-                                "payload":"Main Menu"
-                            },
-                            {
-                                "type":"postback",
-                                "title":"Go to Main Menu",
-                                "payload":"Main Menu"
-                            }
-                        ]
-                      }
-                    ]
-                  }
-                }
-            }
-        })
-    elif "Level1" in message_text or "Main Menu" in message_text:
-        data = json.dumps({
-            "recipient": {
-                "id": recipient_id
-            },
-            "message": {
-                "attachment":{
-                  "type":"template",
-                  "payload":{
-                    "template_type":"button",
-                    "text":"What do you want to do?",
-                    "buttons":[
-                      {
-                        "type":"postback",
-                        "payload":"balance_check",
-                        "title":"Balance Check"
-                      },
-                      {
-                        "type":"postback",
-                        "title":"Transaction Related",
-                        "payload":"transaction_related"
-                      },
-                      {
-                        "type":"postback",
-                        "title":"Card Related",
-                        "payload":"card_related"
-                      }
-                    ]
-                  }
-                }
-            }
-        })
-    elif "balance_check" in message_text:
-        data = json.dumps({
-            "recipient": {
-                "id": recipient_id
-            },
-            "message": {
-                "attachment":{
-                  "type":"template",
-                  "payload":{
-                    "template_type":"generic",
-                    "elements":[
-                     {
-                         "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
-                         "buttons":[
-                             {
-                                "type":"postback",
-                                "title":"Checking A4:" + " $382.57",
-                                "payload":"Main Menu"
-                             },
-                             {
-                                "type":"postback",
-                                "title":"Savings A6:" +" $655.63",
-                                "payload":"Main Menu"
-                             },
-                             {
-                                "type":"postback",
-                                "title":"Show my transactions",
-                                "payload":"transaction_related"
-                             }
-                           ]
-                     }
-                    ]
-                  }
-                }
-            }
-        })
     else:
         data = json.dumps({
             "recipient": {
@@ -266,7 +263,7 @@ def send_message(recipient_id, message_text):
 
 def process_message(text,sender_id):
         text=text.lower()
-        output="Level1"
+        output="Level-1-Menu"
         ps = PorterStemmer()
         words=word_tokenize(text)
         tokens=nltk.word_tokenize(text)
@@ -287,7 +284,7 @@ def process_message(text,sender_id):
                         if 'cancel' in str(words).lower():
                             output="Your last transaction has been cancelled"
                         elif 'last' in str(words).lower():
-                            output="transaction_related"
+                            output="transaction_receipt"
                 if(ps.stem(w).lower()=='balance_check'):
                         output="balance_check"
         send_message(sender_id, output)
