@@ -284,17 +284,17 @@ def send_message(recipient_id, message_text):
                              {
                                 "type":"postback",
                                 "title":"Card No:2564-4562-2314",
-                                "payload":"Main Menu"
+                                "payload":"activate"
                              },
                              {
                                 "type":"postback",
                                 "title":"Card No:5697-1562-3698",
-                                "payload":"Main Menu"
+                                "payload":"activate"
                              },
                              {
                                 "type":"postback",
                                 "title":"Card No:2563-8963-2547",
-                                "payload":"Main-menu"
+                                "payload":"activate"
                              }
                            ]
                      }
@@ -343,7 +343,7 @@ def process_message(text,sender_id):
                         if 'my' in str(words).lower() and 'card' in str(words).lower():
                             output="Card has been blocked"
                 if(ps.stem(w).lower()=='activate'):
-                        if 'my' in str(words).lower() and 'card' in str(words).lower():
+##                        if 'my' in str(words).lower() and 'card' in str(words).lower():
                             output="Card has been Activated"
                 if(ps.stem(w).lower()=='transaction'):
                         if 'cancel' in str(words).lower():
