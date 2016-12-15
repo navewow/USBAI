@@ -81,7 +81,7 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"button",
-                    "text":"What do you want to do?",
+                    "text":"How may I help you?",
                     "buttons":[
                       {
                         "type":"postback",
@@ -119,17 +119,17 @@ def send_message(recipient_id, message_text):
                         "buttons":[
                           {
                             "type":"postback",
-                            "title":"12/01/16 Web Author" + " -$159.90",
+                            "title":" -$159.90" + " on 12/01 Web Author",
                             "payload":"Main Menu"
                           },
                           {
                             "type":"postback",
-                            "title":"12/01/16 Debit Purc" +" -$19.98",
+                            "title":" -$19.98" + " on 12/01 Debit Purc",
                             "payload":"Main Menu"
                           },
                           {
                             "type":"postback",
-                            "title":"12/02/16 Electronic" + " +$856.45",
+                            "title":" +$856.45" + " on 12/02 Electronic",
                             "payload":"Main Menu"
                           }
                         ]
@@ -317,7 +317,7 @@ def send_message(recipient_id, message_text):
                 "id": recipient_id
             },
             "message": {
-                "text": "How may i help you?"
+                "text": message_text
             }
         })
     print data
