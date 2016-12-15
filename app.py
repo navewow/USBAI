@@ -84,7 +84,7 @@ def send_message(recipient_id, message_text):
                   "payload":{
                     "template_type":"button",
                     "text":"What do you want to do?",
-                    "timestamp":"'"+datetime.now().microsecond+"'",
+                    "timestamp":datetime.now().microsecond,
                     "buttons":[
                       {
                         "type":"postback",
@@ -116,7 +116,7 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"generic",
-                    "timestamp":"'"+datetime.now().microsecond+"'",
+                    "timestamp":datetime.now().microsecond,
                     "elements":[
                      {
                          "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
@@ -159,7 +159,7 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"generic",
-                    "timestamp":"'"+datetime.now().microsecond+"'",
+                    "timestamp":datetime.now().microsecond,
                     "elements":[
                      {
                          "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
@@ -201,7 +201,7 @@ def send_message(recipient_id, message_text):
                     "currency":"USD",
                     "payment_method":"Visa 2345",
                     "order_url":"https://lh6.ggpht.com/O0BQpKIbn8c6b67tF4h4VKytKXlUZWrWIdnL06d4LtrUvdUuGr8VF4y7i8ziGAyo23lF=w170",
-                    "timestamp":"'"+datetime.now().microsecond+"'",
+                    "timestamp":datetime.now().microsecond,
                     "elements":[
                       {
                         "title":"12/01/16 Web Author",
