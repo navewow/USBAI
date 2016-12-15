@@ -88,7 +88,7 @@ def send_message(recipient_id, message_text):
                       {
                         "type":"postback",
                         "title":"Balance Check",
-                        "payload":"balance_check"
+                        "payload":"transaction_history"
                       },
                       {
                         "type":"postback",
@@ -115,26 +115,26 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"button",
-                    "text":"Your Transaction History ",
+                    "text":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
                      "buttons":[
                          {
                             "type":"postback",
-                            "title":"12",
-                            "payload":"Main Menu 1"
+                            "title":"12/01/16 Web Author" + " -$159.90",
+                            "payload":"Main Menu"
                          },
                          {
                             "type":"postback",
-                            "title":"123",
-                            "payload":"Main Menu 2"
+                            "title":"12/01/16 Debit Purc" +" -$19.98",
+                            "payload":"Main Menu"
                          },
                          {
                             "type":"postback",
-                            "title":"45",
-                            "payload":"Main Menu 3"
+                            "title":"12/02/16 Electronic" + "+$856.45",
+                            "payload":"Main Menu"
                          },
                          {
                             "type":"postback",
-                            "title":"88",
+                            "title":"12/01/16 Debit Purc" +" -$19.98",
                             "payload":"Main Menu"
                          }
                        ]
