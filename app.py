@@ -18,8 +18,6 @@ def verify():
     # when the endpoint is registered as a webhook, it must echo back
     # the 'hub.challenge' value it receives in the query arguments
 
-    pretty_print(request);
-
     token = request.args.get('hub.verify_token')
     if token == "123":
         return request.args.get('hub.challenge')
@@ -360,14 +358,6 @@ def process_message(text,sender_id):
 def log(message):  # simple wrapper for logging to stdout on heroku
     print str(message)
     sys.stdout.flush()
-
-def pretty_print(req):
-    log('{}\n{}\n{}\n\n{}'.format(
-        '-----------START-----------',
-        req.method + ' ' + req.url,
-        '\n'.join('{}: {}'.format(k, v) for k, v in req.headers.items()),
-        req.body,
-    ))
 
 if __name__ == '__main__':
     app.run(debug=True)
