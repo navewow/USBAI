@@ -84,7 +84,6 @@ def send_message(recipient_id, message_text):
                   "payload":{
                     "template_type":"button",
                     "text":"What do you want to do?",
-                    "timestamp":datetime.now().microsecond,
                     "buttons":[
                       {
                         "type":"postback",
@@ -111,43 +110,7 @@ def send_message(recipient_id, message_text):
             "recipient": {
                 "id": recipient_id
             },
-            "message": {
-                "attachment":{
-                  "type":"template",
-                  "payload":{
-                    "template_type":"generic",
-                    "timestamp":datetime.now().microsecond,
-                    "elements":[
-                     {
-                         "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
-                         "subtitle":"Checking Account",
-                         "buttons":[
-                             {
-                                "type":"postback",
-                                "title":"12/01/16 Web Author" + " -$159.90",
-                                "payload":"Main Menu"
-                             },
-                             {
-                                "type":"postback",
-                                "title":"12/01/16 Debit Purc" +" -$19.98",
-                                "payload":"Main Menu"
-                             },
-                             {
-                                "type":"postback",
-                                "title":"12/02/16 Electronic" + "+$856.45",
-                                "payload":"Main Menu"
-                             },
-                             {
-                                "type":"postback",
-                                "title":"12/01/16 Debit Purc" +" -$19.98",
-                                "payload":"Main Menu"
-                             }
-                           ]
-                     }
-                    ]
-                  }
-                }
-            }
+            "message": {"text": "A4 $45456"}
         })
     elif "balance_check" in message_text:
         data = json.dumps({
@@ -159,7 +122,6 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"generic",
-                    "timestamp":datetime.now().microsecond,
                     "elements":[
                      {
                          "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
@@ -201,7 +163,7 @@ def send_message(recipient_id, message_text):
                     "currency":"USD",
                     "payment_method":"Visa 2345",
                     "order_url":"https://lh6.ggpht.com/O0BQpKIbn8c6b67tF4h4VKytKXlUZWrWIdnL06d4LtrUvdUuGr8VF4y7i8ziGAyo23lF=w170",
-                    "timestamp":datetime.now().microsecond,
+                    "timestamp":"1428444852",
                     "elements":[
                       {
                         "title":"12/01/16 Web Author",
