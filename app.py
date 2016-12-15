@@ -6,6 +6,7 @@ import requests
 import urllib2
 from flask import Flask, request
 from datetime import datetime
+import time
 import nltk
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
@@ -84,6 +85,7 @@ def send_message(recipient_id, message_text):
                   "payload":{
                     "template_type":"button",
                     "text":"What do you want to do?",
+                    "timestamp":time.time(),
                     "buttons":[
                       {
                         "type":"postback",
@@ -115,9 +117,11 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"generic",
+                    "timestamp":time.time(),
                     "elements":[
                      {
                          "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                         "subtitle":"Checking Account",
                          "buttons":[
                              {
                                 "type":"postback",
@@ -156,6 +160,7 @@ def send_message(recipient_id, message_text):
                   "type":"template",
                   "payload":{
                     "template_type":"generic",
+                    "timestamp":time.time(),
                     "elements":[
                      {
                          "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
@@ -173,7 +178,7 @@ def send_message(recipient_id, message_text):
                              {
                                 "type":"postback",
                                 "title":"Show my transactions",
-                                "payload":"transaction_receipt"
+                                "payload":"transaction_history"
                              }
                            ]
                      }
@@ -197,7 +202,7 @@ def send_message(recipient_id, message_text):
                     "currency":"USD",
                     "payment_method":"Visa 2345",
                     "order_url":"https://lh6.ggpht.com/O0BQpKIbn8c6b67tF4h4VKytKXlUZWrWIdnL06d4LtrUvdUuGr8VF4y7i8ziGAyo23lF=w170",
-                    "timestamp":"1428444852",
+                    "timestamp":time.time(),
                     "elements":[
                       {
                         "title":"12/01/16 Web Author",
