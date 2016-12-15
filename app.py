@@ -240,7 +240,32 @@ def send_message(recipient_id, message_text):
             "recipient": {
                 "id": recipient_id
             },
-            "message": {"text":"What do you want to do?"}
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"button",
+                    "text":"Select one option",
+                    "buttons":[
+                      {
+                        "type":"postback",
+                        "title":"Card Activation",
+                        "payload":"activate_card"
+                      },
+                      {
+                        "type":"postback",
+                        "title":"Block Card",
+                        "payload":"block_card"
+                      },
+                      {
+                        "type":"postback",
+                        "title":"Card Cancellation",
+                        "payload":"cancel_card"
+                      }
+                    ]
+                  }
+                }
+            }
         })
     else:
         data = json.dumps({
@@ -248,7 +273,7 @@ def send_message(recipient_id, message_text):
                 "id": recipient_id
             },
             "message": {
-                "text": message_text
+                "text": "What do you want to do?"
             }
         })
     print data
