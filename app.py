@@ -267,6 +267,43 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
+    elif "activate_card" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment": {
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                     {
+                         "title":"Please Choose the Card",
+                         "buttons":[
+                             {
+                                "type":"postback",
+                                "title":"Card No:2564-4562-2314",
+                                "payload":"Main Menu"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"Card No:5697-1562-3698",
+                                "payload":"Main Menu"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"Card No:2563-8963-2547",
+                                "payload":"Main-menu"
+                             }
+                           ]
+                     }
+                    ]
+                  }
+                  
+                }
+            }
+        })
     else:
         data = json.dumps({
             "recipient": {
