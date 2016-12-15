@@ -339,18 +339,20 @@ def process_message(text,sender_id):
                 if(ps.stem(w).lower()=='enrol'):
                         if 'online' in str(words).lower() and 'banking' in str(words).lower():
                             output='Enroll to online banking at https://www.usbank.com/index.html'
-                if(ps.stem(w).lower()=='block'):
+                elif(ps.stem(w).lower()=='block'):
                         if 'my' in str(words).lower() and 'card' in str(words).lower():
                             output="Card has been blocked"
-                if(ps.stem(w).lower()=='activate'):
+                elif(ps.stem(w).lower()=='activate'):
                             output="Card has been Activated"
-                if(ps.stem(w).lower()=='transaction'):
+                elif(ps.stem(w).lower()=='transaction'):
                         if 'cancel' in str(words).lower():
                             output="Your last transaction has been cancelled"
                         elif 'last' in str(words).lower():
                             output="transaction_receipt"
-                if(ps.stem(w).lower()=='balance_check'):
+                elif(ps.stem(w).lower()=='balance_check'):
                         output="balance_check"
+                else:
+                    output="Sorry I can't understand. We will call you."
         send_message(sender_id, output)
 
 
