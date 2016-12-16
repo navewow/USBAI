@@ -82,6 +82,7 @@ def send_message(recipient_id, message_text):
                         {
                             "title":"How may I help you?",
                             "subtitle":"Please type your question or choose from the below option",
+                            "image_url":"https://openclipart.org/image/2400px/svg_to_png/177823/color-icons-red-help.png",
                             "buttons":[
                               {
                                 "type":"postback",
@@ -101,7 +102,8 @@ def send_message(recipient_id, message_text):
                             ]
                         },
                         {
-                            "title":"Others",
+                            "title":"Other Queries",
+                            "image_url":"http://plainicon.com/dboard/userprod/2728_f69a3/prod_thumb/plainicon.com-54895-512px-c22.png",
                             "buttons":[
                               {
                                 "type":"postback",
@@ -167,12 +169,12 @@ def send_message(recipient_id, message_text):
                          "buttons":[
                              {
                                 "type":"postback",
-                                "title":"Checking xxxx56:" + " $382.57",
+                                "title":"Checking ...xxx356:" + " $382.57",
                                 "payload":"Main Menu"
                              },
                              {
                                 "type":"postback",
-                                "title":"Savings xxxx42:" +" $655.63",
+                                "title":"Savings ...xxx432:" +" $655.63",
                                 "payload":"Main Menu"
                              },
                              {
@@ -353,6 +355,8 @@ def send_message(recipient_id, message_text):
                 "text":"Card has been Activated"
             }
         })
+    elif "other_queries" in message_text:
+        pass
     else:
         data = json.dumps({
             "recipient": {
