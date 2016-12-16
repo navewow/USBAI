@@ -400,17 +400,6 @@ def send_message(recipient_id, message_text):
                 "text": "Hi, This is Alison. A live agent. How can I help you?"
             }
         })
-    elif "zip_entered" in message_text:
-        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=waitForAMoment)
-        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=showTyping)
-        data = json.dumps({
-            "recipient": {
-                "id": recipient_id
-            },
-            "message": {
-                "text": "Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+message_text+"&branch=y&atm=y"
-            }
-        })
     else:
         data = json.dumps({
             "recipient": {
@@ -452,7 +441,7 @@ def process_message(text,sender_id):
                 elif(ps.stem(w).lower()=='balance_check'):
                         output="balance_check"
                 elif(ps.stem(w).lower().isdigit()):
-                        output="zip_entered"
+                        output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+ps.stem(w)+"&branch=y&atm=y"
                 elif(ps.stem(w).lower()=='branch' or ps.stem(w).lower()=='atm'):
                     if 'locat' in str(words).lower() or 'find' in str(words).lower() or 'search' in str(words).lower():
                         output="branch_locate"
