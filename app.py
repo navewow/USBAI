@@ -61,6 +61,7 @@ def webhook():
 def send_message(recipient_id, message_text):
 
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
+    showTyping = json.dumps({"recipient": {"id": recipient_id },"sender_action":"typing_on"})
 
     params = {
         "access_token": 'EAAZAgx2FZBzKoBANUwLGzEiEXKuWrZAas32YTW5sQt9v9AtURPnrQD5wlzt5JFbJ3k5dyZBiZBZC7DAv4mwOJdSCRxYmDw2vzyr8oYeIqcyt8blL3TDYjKXEM02LU5PBUbZBxp0lQcXe2uJXW11uWa1WZC6dEhoYkrcM5vxuGeHQF6bd3Bsu9mUF'
@@ -82,7 +83,6 @@ def send_message(recipient_id, message_text):
                         {
                             "title":"How may I help you?",
                             "subtitle":"Please type your question or choose from the below option",
-                            "image_url":"http://images.clipartlogo.com/files/ss/thumb/143/14356090/help-icon_small.jpg",
                             "buttons":[
                               {
                                 "type":"postback",
@@ -112,12 +112,12 @@ def send_message(recipient_id, message_text):
                         },
                         {
                             "title":"Connect with Live Agent",
-                            "subtitle":"An live agent will assist you for your queries",
+                            "subtitle":"A live agent will assist you for your queries",
                             "buttons":[
                               {
                                 "type":"postback",
-                                "title":"Connect with Live Agent",
-                                "payload":"live_agent"
+                                "title":"Connect Me",
+                                "payload":"live_agent_connect"
                               }]
                         }
                     ]
@@ -371,6 +371,16 @@ def send_message(recipient_id, message_text):
             },
             "message": {
                 "text": "Sure"
+            }
+        })
+    elif "live_agent_connect" in message_text:
+        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=showTyping)
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "text": "Hi, This is Alison. An live agent. How can I help you?"
             }
         })
     else:
