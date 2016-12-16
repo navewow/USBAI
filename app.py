@@ -356,6 +356,20 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
+    elif "branch_locate" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                    "text":"Please share your location:",
+                    "quick_replies":[
+                      {
+                        "content_type":"location",
+                      }
+                    ]
+            }
+        })
     elif "activate" in message_text:
         requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=waitForAMoment)
         requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=showTyping)
@@ -428,6 +442,9 @@ def process_message(text,sender_id):
                             output="transaction_receipt"
                 elif(ps.stem(w).lower()=='balance_check'):
                         output="balance_check"
+                elif(ps.stem(w).lower()=='branch' or ps.stem(w).lower()=='atm'):
+                    if 'locat' in str(words).lower() or 'find' in str(words).lower() or 'search' in str(words).lower():
+                        output="branch_locate"
         send_message(sender_id, output)
 
 
