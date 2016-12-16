@@ -365,36 +365,22 @@ def send_message(recipient_id, message_text):
                     "quick_replies":[
                       {
                         "content_type":"location",
+                      },
+                      {
+                        "content_type":"text",
+                        "title:": "Enter Zip Code",
+                        "payload":"zip_entry"
                       }
-                    ],
-                    "attachment": {
-                      "type":"template",
-                      "payload":{
-                        "template_type":"generic",
-                        "elements":[
-                         {
-                             "title":"Enter Zip code",
-                             "buttons":[
-                                 {
-                                    "type":"postback",
-                                    "title":"Let Me Enter",
-                                    "payload":"zip_entry"
-                                 }
-                               ]
-                         }
-                        ]
-                      }
-                    }
+                    ]
             }
         })
     elif "zip_entry" in message_text:
-        waitingForZip=TRUE
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
             },
             "message": {
-                    "text":"Please enter only 5 digits",
+                    "text":"Please enter 5 digits in this format. zip:xxxx",
             }
         })
     elif "activate" in message_text:
