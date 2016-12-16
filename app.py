@@ -156,12 +156,12 @@ def send_message(recipient_id, message_text):
                          "buttons":[
                              {
                                 "type":"postback",
-                                "title":"Current xxxxxxx1256:" + " $382.57",
+                                "title":"Current xxxx56:" + " $382.57",
                                 "payload":"Main Menu"
                              },
                              {
                                 "type":"postback",
-                                "title":"Savings xxxxxxx1342:" +" $655.63",
+                                "title":"Savings xxxx42:" +" $655.63",
                                 "payload":"Main Menu"
                              },
                              {
