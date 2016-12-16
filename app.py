@@ -156,21 +156,52 @@ def send_message(recipient_id, message_text):
                          "buttons":[
                              {
                                 "type":"postback",
-                                "title":"Checking A4:" + " $382.57",
+                                "title":"Current xxxxxxx1256:" + " $382.57",
                                 "payload":"Main Menu"
                              },
                              {
                                 "type":"postback",
-                                "title":"Savings A6:" +" $655.63",
+                                "title":"Savings xxxxxxx1342:" +" $655.63",
                                 "payload":"Main Menu"
                              },
                              {
                                 "type":"postback",
-                                "title":"Show my transactions",
-                                "payload":"transaction_history"
+                                "title":"Transactions",
+                                "payload":"transactions"
                              }
                            ]
                      }
+                    ]
+                  }
+                }
+            }
+        })
+    elif "transactions" in message_text:
+         data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                     {
+                         "title":"Choose Account Type:",
+                         "buttons":[
+                             {
+                                "type":"postback",
+                                "title":"Current Account",
+                                "payload":"transaction_history"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"Savings Account",
+                                "payload":"transaction_history"
+                             }
+                         ]
+                      }
                     ]
                   }
                 }
@@ -281,17 +312,17 @@ def send_message(recipient_id, message_text):
                          "buttons":[
                              {
                                 "type":"postback",
-                                "title":"Card No:2564-4562-2314",
+                                "title":"Card No:xxxxxxxx2314",
                                 "payload":"activate"
                              },
                              {
                                 "type":"postback",
-                                "title":"Card No:5697-1562-3698",
+                                "title":"Card No:xxxxxxxx3698",
                                 "payload":"activate"
                              },
                              {
                                 "type":"postback",
-                                "title":"Card No:2563-8963-2547",
+                                "title":"Card No:xxxxxxxx2547",
                                 "payload":"activate"
                              }
                            ]
