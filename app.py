@@ -126,7 +126,7 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
-    elif "transaction_history" in message_text:
+    elif "transaction_history_1" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -163,6 +163,70 @@ def send_message(recipient_id, message_text):
             }
         })
 
+    elif "transaction_history_2" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                     {
+                        "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "buttons":[
+                          {
+                            "type":"postback",
+                            "title":" -$3459.90" + " on 11/01 Macy",
+                            "payload":"Main Menu"
+                          },
+                          {
+                            "type":"postback",
+                            "title":" -$239.98" + " on 11/01 Sears",
+                            "payload":"Main Menu"
+                          },
+                          {
+                            "type":"postback",
+                            "title":" -$2000.00" + " on 11/02 Transfer",
+                            "payload":"Main Menu"
+                          }
+                        ]
+                     }
+                    ]
+                  }
+                }
+            }
+        })
+
+    elif "transaction_history_3" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                     {
+                        "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "buttons":[
+                          {
+                            "type":"postback",
+                            "title":" +$1,450,000.00" + " on 10/01 Deposit",
+                            "payload":"Main Menu"
+                          }
+                        ]
+                     }
+                    ]
+                  }
+                }
+            }
+        })
+
     elif "balance_check" in message_text:
         data = json.dumps({
             "recipient": {
@@ -175,31 +239,49 @@ def send_message(recipient_id, message_text):
                     "template_type":"generic",
                     "elements":[
                      {
-                         "title":"Your Balance as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                         "title":"Your Balance as of :" ,
+                         "subtitle":datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT"
+                     },
+                     {
+                         "title":"Checking ...xxx356:",
+                         "subtitle":"$15,382.57",
                          "buttons":[
                              {
                                 "type":"postback",
-                                "title":"Checking ...xxx356:" + " $382.57",
-                                "payload":"Main Menu"
-                             },
-                             {
-                                "type":"postback",
-                                "title":"Savings ...xxx432:" +" $655.63",
-                                "payload":"Main Menu"
-                             },
+                                "title":"Transactions",
+                                "payload":"transaction_history_1"
+                             }
+                           ]
+                     },
+                     {
+                         "title":"Savings ...xxx432:",
+                         "subtitle":"$4655.00",
+                         "buttons":[
                              {
                                 "type":"postback",
                                 "title":"Transactions",
-                                "payload":"transactions"
+                                "payload":"transaction_history_2"
+                             }
+                           ]
+                     },
+                     {
+                         "title":"CD ...xxx478:",
+                         "subtitle":"$1,22,500.00",
+                         "buttons":[
+                             {
+                                "type":"postback",
+                                "title":"Transactions",
+                                "payload":"transaction_history_3"
                              }
                            ]
                      }
+
                     ]
                   }
                 }
             }
         })
-    elif "transactions" in message_text:
+    elif "transaction_history" in message_text:
          data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -215,13 +297,18 @@ def send_message(recipient_id, message_text):
                          "buttons":[
                              {
                                 "type":"postback",
-                                "title":"Checking Account",
-                                "payload":"transaction_history"
+                                "title":"Checking ...xxx356",
+                                "payload":"transaction_history_1"
                              },
                              {
                                 "type":"postback",
-                                "title":"Savings Account",
-                                "payload":"transaction_history"
+                                "title":"Savings ...xxx432",
+                                "payload":"transaction_history_2"
+                             },
+                             {
+                                "type":"postback",
+                                "title":"CD ...xxx478",
+                                "payload":"transaction_history_3"
                              }
                          ]
                       }
