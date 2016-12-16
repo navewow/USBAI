@@ -38,10 +38,9 @@ def webhook():
         for entry in data["entry"]:
             for messaging_event in entry["messaging"]:
 
+                sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
+                recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                 if messaging_event.get("message"):  # someone sent us a message
-
-                    sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
-                    recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     msg = messaging_event["message"]["text"]  # the message's text
                     process_message(msg,sender_id)
 
@@ -52,10 +51,8 @@ def webhook():
                     pass
 
                 if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-                    sender_id = messaging_event["sender"]["id"]
-                    recipient_id = messaging_event["recipient"]["id"]
                     payload = messaging_event.get("postback")["payload"]
-                    print payload
+                    log(payload)
                     send_message(sender_id, payload)
 
     return "ok", 200
@@ -80,24 +77,38 @@ def send_message(recipient_id, message_text):
                 "attachment":{
                   "type":"template",
                   "payload":{
-                    "template_type":"button",
-                    "text":"How may I help you?",
-                    "buttons":[
-                      {
-                        "type":"postback",
-                        "title":"Balance Check",
-                        "payload":"balance_check"
-                      },
-                      {
-                        "type":"postback",
-                        "title":"Transaction History",
-                        "payload":"transaction_history"
-                      },
-                      {
-                        "type":"postback",
-                        "title":"Card Related Operations",
-                        "payload":"card_related"
-                      }
+                    "template_type":"generic",
+                    "elements":[
+                        {
+                            "title":"How may I help you?",
+                            "subtitle":"Please type your question or choose from the below option",
+                            "buttons":[
+                              {
+                                "type":"postback",
+                                "title":"Balance Check",
+                                "payload":"balance_check"
+                              },
+                              {
+                                "type":"postback",
+                                "title":"Transaction History",
+                                "payload":"transaction_history"
+                              },
+                              {
+                                "type":"postback",
+                                "title":"Card Operations",
+                                "payload":"card_operations"
+                              }
+                            ]
+                        },
+                        {
+                            "title":"Others",
+                            "buttons":[
+                              {
+                                "type":"postback",
+                                "title":"Let me Type",
+                                "payload":"other_queries"
+                              }]
+                        }
                     ]
                   }
                 }
@@ -264,7 +275,7 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
-    elif "card_related" in message_text:
+    elif "card_operations" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
