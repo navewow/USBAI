@@ -156,7 +156,7 @@ def send_message(recipient_id, message_text):
                          "buttons":[
                              {
                                 "type":"postback",
-                                "title":"Current xxxx56:" + " $382.57",
+                                "title":"Checking xxxx56:" + " $382.57",
                                 "payload":"Main Menu"
                              },
                              {
@@ -192,7 +192,7 @@ def send_message(recipient_id, message_text):
                          "buttons":[
                              {
                                 "type":"postback",
-                                "title":"Current Account",
+                                "title":"Checking Account",
                                 "payload":"transaction_history"
                              },
                              {
