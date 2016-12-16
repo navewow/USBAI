@@ -82,7 +82,7 @@ def send_message(recipient_id, message_text):
                         {
                             "title":"How may I help you?",
                             "subtitle":"Please type your question or choose from the below option",
-                            "image_url":"https://openclipart.org/image/2400px/svg_to_png/177823/color-icons-red-help.png",
+                            "image_url":"http://images.clipartlogo.com/files/ss/thumb/143/14356090/help-icon_small.jpg",
                             "buttons":[
                               {
                                 "type":"postback",
@@ -103,12 +103,21 @@ def send_message(recipient_id, message_text):
                         },
                         {
                             "title":"Other Queries",
-                            "image_url":"http://plainicon.com/dboard/userprod/2728_f69a3/prod_thumb/plainicon.com-54895-512px-c22.png",
                             "buttons":[
                               {
                                 "type":"postback",
                                 "title":"Let me Type",
                                 "payload":"other_queries"
+                              }]
+                        },
+                        {
+                            "title":"Connect with Live Agent",
+                            "subtitle":"An live agent will assist you for your queries",
+                            "buttons":[
+                              {
+                                "type":"postback",
+                                "title":"Connect with Live Agent",
+                                "payload":"live_agent"
                               }]
                         }
                     ]
@@ -356,7 +365,14 @@ def send_message(recipient_id, message_text):
             }
         })
     elif "other_queries" in message_text:
-        pass
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "text": "Sure"
+            }
+        })
     else:
         data = json.dumps({
             "recipient": {
