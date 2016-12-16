@@ -361,7 +361,7 @@ def send_message(recipient_id, message_text):
                 "id": recipient_id
             },
             "message": {
-                    "text":"Please share your location Or enter your zip code in 'zip:xxxxx' format",
+                    "text":"Please share your location Or enter your 5 digit zip code",
                     "quick_replies":[
                       {
                         "content_type":"location",
