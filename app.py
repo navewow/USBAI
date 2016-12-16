@@ -62,6 +62,7 @@ def send_message(recipient_id, message_text):
 
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
     showTyping = json.dumps({"recipient": {"id": recipient_id },"sender_action":"typing_on"})
+    waitForAMoment = json.dumps({"recipient": {"id": recipient_id },"message":"Please wait for a moment."})
 
     params = {
         "access_token": 'EAAZAgx2FZBzKoBANUwLGzEiEXKuWrZAas32YTW5sQt9v9AtURPnrQD5wlzt5JFbJ3k5dyZBiZBZC7DAv4mwOJdSCRxYmDw2vzyr8oYeIqcyt8blL3TDYjKXEM02LU5PBUbZBxp0lQcXe2uJXW11uWa1WZC6dEhoYkrcM5vxuGeHQF6bd3Bsu9mUF'
@@ -82,7 +83,7 @@ def send_message(recipient_id, message_text):
                     "elements":[
                         {
                             "title":"How may I help you?",
-                            "subtitle":"Please type your question or choose from the below option",
+                            "subtitle":"Please type your question or choose from the below option or slide right for more options.",
                             "buttons":[
                               {
                                 "type":"postback",
@@ -356,6 +357,8 @@ def send_message(recipient_id, message_text):
             }
         })
     elif "activate" in message_text:
+        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=waitForAMoment)
+        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=showTyping)
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -374,13 +377,15 @@ def send_message(recipient_id, message_text):
             }
         })
     elif "live_agent_connect" in message_text:
+        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=waitForAMoment)
         requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=showTyping)
+
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
             },
             "message": {
-                "text": "Hi, This is Alison. An live agent. How can I help you?"
+                "text": "Hi, This is Alison. A live agent. How can I help you?"
             }
         })
     else:
