@@ -529,12 +529,6 @@ def process_message(text,sender_id):
                         output="balance_check"
                 elif(ps.stem(w).lower().isdigit()):
                         output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+ps.stem(w)+"&branch=y&atm=y"
-                elif(ps.stem(w).lower()=='bye'):
-                        output="Bye. Have a Nice day!"
-                elif(ps.stem(w).lower()=='thank you' or ps.stem(w).lower()=='thanks'):
-                        output="You are welcome. Is there anything else to assist?"
-                elif(ps.stem(w).lower()=='thr'):
-                        output="Yes"
                 elif(ps.stem(w).lower()=='branch' or ps.stem(w).lower()=='atm'):
                     if 'locat' in str(words).lower() or 'find' in str(words).lower() or 'search' in str(words).lower():
                         output="branch_locate"
