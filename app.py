@@ -352,7 +352,6 @@ def send_message(recipient_id, message_text):
                      }
                     ]
                   }
-
                 }
             }
         })
@@ -362,12 +361,40 @@ def send_message(recipient_id, message_text):
                 "id": recipient_id
             },
             "message": {
-                    "text":"Please share your location:",
+                    "text":"Please share your location Or enter your zip code",
                     "quick_replies":[
                       {
                         "content_type":"location",
                       }
-                    ]
+                    ],
+                    "attachment": {
+                      "type":"template",
+                      "payload":{
+                        "template_type":"generic",
+                        "elements":[
+                         {
+                             "title":"Enter Zip code",
+                             "buttons":[
+                                 {
+                                    "type":"postback",
+                                    "title":"Let Me Enter",
+                                    "payload":"zip_entry"
+                                 }
+                               ]
+                         }
+                        ]
+                      }
+                    }
+            }
+        })
+    elif "zip_entry" in message_text:
+        waitingForZip=TRUE
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                    "text":"Please enter only 5 digits",
             }
         })
     elif "activate" in message_text:
@@ -393,7 +420,6 @@ def send_message(recipient_id, message_text):
     elif "live_agent_connect" in message_text:
         requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=waitForAMoment)
         requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=showTyping)
-
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -402,6 +428,18 @@ def send_message(recipient_id, message_text):
                 "text": "Hi, This is Alison. A live agent. How can I help you?"
             }
         })
+    elif waitingForZip == TRUE:
+        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=waitForAMoment)
+        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=showTyping)
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "text": "Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+message_text+"&branch=y&atm=y"
+            }
+        })
+        waitingForZip=FALSE
     else:
         data = json.dumps({
             "recipient": {
