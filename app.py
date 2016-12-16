@@ -138,7 +138,7 @@ def send_message(recipient_id, message_text):
                     "template_type":"generic",
                     "elements":[
                      {
-                        "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "title":"Your Transaction History as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
                         "buttons":[
                           {
                             "type":"postback",
@@ -175,7 +175,7 @@ def send_message(recipient_id, message_text):
                     "template_type":"generic",
                     "elements":[
                      {
-                        "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "title":"Your Transaction History as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
                         "buttons":[
                           {
                             "type":"postback",
@@ -212,7 +212,7 @@ def send_message(recipient_id, message_text):
                     "template_type":"generic",
                     "elements":[
                      {
-                        "title":"Your Transaction History (A4) as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "title":"Your Transaction History as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
                         "buttons":[
                           {
                             "type":"postback",
