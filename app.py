@@ -139,6 +139,7 @@ def send_message(recipient_id, message_text):
                     "elements":[
                      {
                         "title":"Your Transaction History as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "subtitle":"Account No:...xxx356:",
                         "buttons":[
                           {
                             "type":"postback",
@@ -176,6 +177,7 @@ def send_message(recipient_id, message_text):
                     "elements":[
                      {
                         "title":"Your Transaction History as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "subtitle":"Account No:...xxx432:",
                         "buttons":[
                           {
                             "type":"postback",
@@ -213,6 +215,7 @@ def send_message(recipient_id, message_text):
                     "elements":[
                      {
                         "title":"Your Transaction History as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                        "subtitle":"Account No:...xxx478:",
                         "buttons":[
                           {
                             "type":"postback",
@@ -542,3 +545,4 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 
 if __name__ == '__main__':
     app.run(debug=True)
+
