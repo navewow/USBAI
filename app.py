@@ -490,27 +490,15 @@ def send_message(recipient_id, message_text):
                 "text": "Hi, This is Alison. A live agent. How can I help you?"
             }
         })
-    elif "login_menu" in message_text:
+    elif "login" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
             },
             "message": {
-                "text": "Please Enter Your Mobile number:"
-               
-            }
-           
-        })
-    elif "phone" in message_text:
-        data = json.dumps({
-            "recipient": {
-                "id": recipient_id
-            },
-            "message": {
-                "text": "Login successfully"
+                "text": "login successfully"
             }
         })
-        
     else:
         data = json.dumps({
             "recipient": {
@@ -556,12 +544,6 @@ def process_message(text,sender_id):
                 elif(ps.stem(w).lower()=='branch' or ps.stem(w).lower()=='atm'):
                     if 'locat' in str(words).lower() or 'find' in str(words).lower() or 'search' in str(words).lower():
                         output="branch_locate"
-                elif(ps.stem(w).lower()=='login'):
-                        output="login_menu"
-                elif(ps.stem(w).lower().isdigit()):
-                    if(len(ps.stem(w))==10):
-                        output="phone"
-                    
         send_message(sender_id, output)
 
 
@@ -572,4 +554,3 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 
 if __name__ == '__main__':
     app.run(debug=True)
-
