@@ -559,7 +559,7 @@ def process_message(text,sender_id):
                 elif(ps.stem(w).lower()=='login'):
                         output="login_menu"
                 elif(ps.stem(w).lower().isdigit()):
-                    if(len(w)==10):
+                    if(len(ps.stem(w))==10):
                         output="phone"
                     
         send_message(sender_id, output)
