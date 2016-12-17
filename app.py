@@ -490,6 +490,15 @@ def send_message(recipient_id, message_text):
                 "text": "Hi, This is Alison. A live agent. How can I help you?"
             }
         })
+    elif "login" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "text": "login successfully"
+            }
+        })
     else:
         data = json.dumps({
             "recipient": {
@@ -545,4 +554,3 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 
 if __name__ == '__main__':
     app.run(debug=True)
-
