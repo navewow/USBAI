@@ -558,8 +558,10 @@ def process_message(text,sender_id):
                         output="branch_locate"
                 elif(ps.stem(w).lower()=='login'):
                         output="login_menu"
-                elif(w.isdigit()):
+                elif(ps.stem(w).lower().isdigit()):
+                    if(len(w)==10):
                         output="phone"
+                    
         send_message(sender_id, output)
 
 
@@ -570,3 +572,4 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 
 if __name__ == '__main__':
     app.run(debug=True)
+
