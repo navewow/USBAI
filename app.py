@@ -246,7 +246,7 @@ def send_message(recipient_id, message_text):
                          "subtitle":datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT"
                      },
                      {
-                         "title":"Checking ...xxx356:",
+                         "title":"Checking xxx356:",
                          "subtitle":"$15,382.57",
                          "buttons":[
                              {
@@ -257,7 +257,7 @@ def send_message(recipient_id, message_text):
                            ]
                      },
                      {
-                         "title":"Savings ...xxx432:",
+                         "title":"Savings xxx432:",
                          "subtitle":"$4655.00",
                          "buttons":[
                              {
@@ -268,7 +268,7 @@ def send_message(recipient_id, message_text):
                            ]
                      },
                      {
-                         "title":"CD ...xxx478:",
+                         "title":"CD xxx478:",
                          "subtitle":"$1,22,500.00",
                          "buttons":[
                              {
@@ -300,17 +300,17 @@ def send_message(recipient_id, message_text):
                          "buttons":[
                              {
                                 "type":"postback",
-                                "title":"Checking ...xxx356",
+                                "title":"Checking xxx356",
                                 "payload":"transaction_history_1"
                              },
                              {
                                 "type":"postback",
-                                "title":"Savings ...xxx432",
+                                "title":"Savings xxx432",
                                 "payload":"transaction_history_2"
                              },
                              {
                                 "type":"postback",
-                                "title":"CD ...xxx478",
+                                "title":"CD xxx478",
                                 "payload":"transaction_history_3"
                              }
                          ]
@@ -539,6 +539,8 @@ def process_message(text,sender_id):
                             output="transaction_receipt"
                 elif(ps.stem(w).lower()=='balance_check'):
                         output="balance_check"
+                elif(ps.stem(w).lower()=='thanks' or ps.stem(w).lower()=='thank'):
+                        output="You are Welcome!"
                 elif(ps.stem(w).lower().isdigit()):
                         output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+ps.stem(w)+"&branch=y&atm=y"
                 elif(ps.stem(w).lower()=='branch' or ps.stem(w).lower()=='atm'):
