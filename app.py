@@ -242,12 +242,8 @@ def send_message(recipient_id, message_text):
                     "template_type":"generic",
                     "elements":[
                      {
-                         "title":"Your Balance as of :" ,
-                         "subtitle":datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT"
-                     },
-                     {
-                         "title":"Checking xxx356:",
-                         "subtitle":"$15,382.57",
+                         "title":"Your Balance as of :" +datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT",
+                         "subtitle":"Checking xxx356: $15,382.57",
                          "buttons":[
                              {
                                 "type":"postback",
