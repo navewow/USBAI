@@ -623,7 +623,7 @@ def process_message(text,sender_id):
                     output="Card has been Activated"
                 elif(ps.stem(w).lower()=='balanc' or ps.stem(w).lower()=='summari'):
                     output="balance_check"
-                elif(ps.stem(w).lower()=='history'):
+                elif(ps.stem(w).lower()=='histori' or ps.stem(w).lower()=='transact'):
                     if 'cancel' in str(words).lower():
                         output="transaction_receipt"
                     elif 'last' in str(words).lower():
