@@ -610,19 +610,18 @@ def process_message(text,sender_id):
         entities=nltk.ne_chunk(tagged)
         print words
         for w in words:
-                print w
-                print ps.stem(w)
-                print ps.stem(w).lower()
-                print ps.stem(w).lower()=='balance'
+                #print w
+                #print ps.stem(w)
+                #print ps.stem(w).lower()
                 if(ps.stem(w).lower()=='enrol'):
                         if 'online' in str(words).lower() and 'banking' in str(words).lower():
                             output='Enroll to online banking at https://www.usbank.com/index.html'
                 elif(ps.stem(w).lower()=='block'):
                         if 'my' in str(words).lower() and 'card' in str(words).lower():
                             output="Card has been blocked"
-                elif(ps.stem(w).lower()=='activate'):
+                elif(ps.stem(w).lower()=='activat'):
                     output="Card has been Activated"
-                elif(ps.stem(w).lower()=='balance' or ps.stem(w).lower()=='summary'):
+                elif(ps.stem(w).lower()=='balanc' or ps.stem(w).lower()=='summari'):
                     output="balance_check"
                 elif(ps.stem(w).lower()=='transaction'):
                     if 'cancel' in str(words).lower():
