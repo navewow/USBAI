@@ -619,16 +619,16 @@ def process_message(text,sender_id):
                         if 'my' in str(words).lower() and 'card' in str(words).lower():
                             output="Card has been blocked"
                 elif(ps.stem(w).lower()=='activate'):
-                            output="Card has been Activated"
+                    output="Card has been Activated"
                 elif(ps.stem(w).lower()=='balance' or ps.stem(w).lower()=='summary'):
-                        output="balance_check"
+                    output="balance_check"
                 elif(ps.stem(w).lower()=='transaction'):
                     if 'cancel' in str(words).lower():
                         output="transaction_receipt"
                     elif 'last' in str(words).lower():
                         output="transaction_history"
                 elif(ps.stem(w).lower()=='thanks' or ps.stem(w).lower()=='thank'):
-                        output="You are Welcome!"
+                    output="You are Welcome!"
                 elif(ps.stem(w).lower().isdigit() and len(str(ps.stem(w)))):
                     #output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+ps.stem(w)+"&branch=y&atm=y"
                     output=ps.stem(w).lower()
