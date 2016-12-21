@@ -636,6 +636,7 @@ def process_message(text,sender_id):
                         output="branch_locate"
                 elif(ps.stem(w).lower()=='login'):
                         output="login_menu"
+        print output
         send_message(sender_id, output)
 
 
