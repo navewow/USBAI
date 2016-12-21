@@ -458,18 +458,37 @@ def send_message(recipient_id, message_text):
             }
         })
     elif message_text.isdigit() and len(str(message_text))==5 :
-        op="No details found. Please try again with another zip code."
+       # op="No details found. Please try again with another zip code."
         log('Finding location:'+locFinderUrl+message_text);
         results = requests.get(locFinderUrl+message_text)
         resultsJson = json.loads(results.text)
-        op=str(resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['AddressLine1'])
+       # op=str(resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['AddressLine1'])
         #log(resultsJson.GetListATMorBranchReply.BranchList[0].LocationIdentifier.PhoneNumber)
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
             },
             "message": {
-                    "text": op
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                        {
+                            "title":"Dist:"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['Distance']+" "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
+                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['AddressLine1'],
+                        },
+                        {
+                            "title":"Dist:"+resultsJson['GetListATMorBranchReply']['ATMList'][1]['Distance']+" "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
+                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['Address']['AddressLine1'],
+                        },
+                        {
+                            "title":"Dist:"+resultsJson['GetListATMorBranchReply']['ATMList'][2]['Distance']+" "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
+                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['Address']['AddressLine1'],
+                        }
+                    ]
+                  }
+                }
             }
         })
 
