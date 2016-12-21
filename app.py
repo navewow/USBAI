@@ -619,13 +619,13 @@ def process_message(text,sender_id):
                             output="Card has been blocked"
                 elif(ps.stem(w).lower()=='activate'):
                             output="Card has been Activated"
+                elif(ps.stem(w).lower()=='balance'):
+                        output="balance_check"
                 elif(ps.stem(w).lower()=='transaction'):
                         if 'cancel' in str(words).lower():
                             output="Your last transaction has been cancelled"
                         elif 'last' in str(words).lower():
                             output="transaction_receipt"
-                elif(ps.stem(w).lower()=='balance'):
-                        output="balance_check"
                 elif(ps.stem(w).lower()=='thanks' or ps.stem(w).lower()=='thank'):
                         output="You are Welcome!"
                 elif(ps.stem(w).lower().isdigit() and len(str(ps.stem(w)))):
