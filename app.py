@@ -458,15 +458,15 @@ def send_message(recipient_id, message_text):
             }
         })
     elif "location_finder" in message_text:
-        results = requests.get(locFinderUrl+message_text)
-        if(results is not None):
-            resultsJson = json.loads(results.text)
-            log(resultsJson);
-            op="No details found"
-            log(resultsJson.GetListATMorBranchReply.Status.StatusCode)
-            log(resultsJson.GetListATMorBranchReply.ATMList[0].LocationIdentifier.Address.AddressLine1)
-            op=str(resultsJson.GetListATMorBranchReply.ATMList[0].LocationIdentifier.Address.AddressLine1)
-            log(resultsJson.GetListATMorBranchReply.BranchList[0].LocationIdentifier.PhoneNumber)
+        op="No details found"
+        #results = requests.get(locFinderUrl+message_text)
+        #if(results is not None):
+         #   resultsJson = json.loads(results.text)
+          #  log(resultsJson);
+           # log(resultsJson.GetListATMorBranchReply.Status.StatusCode)
+            #log(resultsJson.GetListATMorBranchReply.ATMList[0].LocationIdentifier.Address.AddressLine1)
+            #op=str(resultsJson.GetListATMorBranchReply.ATMList[0].LocationIdentifier.Address.AddressLine1)
+            #log(resultsJson.GetListATMorBranchReply.BranchList[0].LocationIdentifier.PhoneNumber)
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
