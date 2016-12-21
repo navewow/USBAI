@@ -611,7 +611,7 @@ def process_message(text,sender_id):
         print words
         for w in words:
                 #print w
-                #print ps.stem(w)
+                print ps.stem(w)
                 #print ps.stem(w).lower()
                 if(ps.stem(w).lower()=='enrol'):
                         if 'online' in str(words).lower() and 'banking' in str(words).lower():
@@ -623,7 +623,7 @@ def process_message(text,sender_id):
                     output="Card has been Activated"
                 elif(ps.stem(w).lower()=='balanc' or ps.stem(w).lower()=='summari'):
                     output="balance_check"
-                elif(ps.stem(w).lower()=='transaction'):
+                elif(ps.stem(w).lower()=='history'):
                     if 'cancel' in str(words).lower():
                         output="transaction_receipt"
                     elif 'last' in str(words).lower():
