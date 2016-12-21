@@ -63,6 +63,7 @@ def send_message(recipient_id, message_text):
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
     showTyping = json.dumps({"recipient": {"id": recipient_id },"sender_action":"typing_on"})
     waitForAMoment = json.dumps({"recipient": {"id": recipient_id },"message":"Please wait for a moment."})
+    hereTheResults = json.dumps({"recipient": {"id": recipient_id },"message":"Here are the results.."})
     locFinderUrl="https://publicrestservice.usbank.com/public/ATMBranchLocatorRESTService_V_8_0/GetListATMorBranch/LocationSearch/StringQuery?application=parasoft&transactionid=7777777d-8946-4f88-a958-4bdbcf0bed6f&output=json&searchtype=E&branchfeatures=BOP&stringquery="
 
     params = {
@@ -459,6 +460,10 @@ def send_message(recipient_id, message_text):
         })
     elif message_text.isdigit() and len(str(message_text))==5 :
        # op="No details found. Please try again with another zip code."
+        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=waitForAMoment)
+        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=showTyping)
+        requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=hereTheResults)
+
         log('Finding location:'+locFinderUrl+message_text);
         results = requests.get(locFinderUrl+message_text)
         resultsJson = json.loads(results.text)
