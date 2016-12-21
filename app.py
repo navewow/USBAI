@@ -611,6 +611,7 @@ def process_message(text,sender_id):
         print words
         for w in words:
                 print w
+                print ps.stem(w).lower()=='balance'
                 if(ps.stem(w).lower()=='enrol'):
                         if 'online' in str(words).lower() and 'banking' in str(words).lower():
                             output='Enroll to online banking at https://www.usbank.com/index.html'
@@ -622,10 +623,10 @@ def process_message(text,sender_id):
                 elif(ps.stem(w).lower()=='balance'):
                         output="balance_check"
                 elif(ps.stem(w).lower()=='transaction'):
-                        if 'cancel' in str(words).lower():
-                            output="Your last transaction has been cancelled"
-                        elif 'last' in str(words).lower():
-                            output="transaction_receipt"
+                    if 'cancel' in str(words).lower():
+                        output="transaction_receipt"
+                    elif 'last' in str(words).lower():
+                        output="transaction_history"
                 elif(ps.stem(w).lower()=='thanks' or ps.stem(w).lower()=='thank'):
                         output="You are Welcome!"
                 elif(ps.stem(w).lower().isdigit() and len(str(ps.stem(w)))):
