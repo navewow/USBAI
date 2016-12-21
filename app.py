@@ -63,6 +63,7 @@ def send_message(recipient_id, message_text):
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
     showTyping = json.dumps({"recipient": {"id": recipient_id },"sender_action":"typing_on"})
     waitForAMoment = json.dumps({"recipient": {"id": recipient_id },"message":"Please wait for a moment."})
+    locFinderUrl="https://publicrestservice.usbank.com/public/ATMBranchLocatorRESTService_V_8_0/GetListATMorBranch/LocationSearch/StringQuery?application=parasoft&transactionid=7777777d-8946-4f88-a958-4bdbcf0bed6f&output=json&searchtype=E&branchfeatures=BOP&stringquery="
 
     params = {
         "access_token": 'EAAZAgx2FZBzKoBAKAYdfIRiVjZC2MZARQHsF5ChTESjuNK3BeCLwdKDc3rgRIDIhWfu0SV8lmLPG0ZCcAiRpjArGu3glY52BKNX7lxkHrDuws052xj6UDcvUoZBxRUW2kacIDSdf84JXYzyG5drfsNx3U8ZAJeI6wO0GGtBYynGZADmRWu2ZBswgn'
@@ -442,6 +443,7 @@ def send_message(recipient_id, message_text):
             }
         })
     elif "branch_locate" in message_text:
+
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -455,6 +457,23 @@ def send_message(recipient_id, message_text):
                     ]
             }
         })
+    elif "location_finder" in message_text:
+        results = requests.get(locFinderUrl+message_text)
+        op="No details found"
+        if(results is not None):
+            log(results.GetListATMorBranchReply.Status.StatusCode)
+            log(results.GetListATMorBranchReply.ATMList[0].LocationIdentifier.Address.AddressLine1)
+            op=str(results.GetListATMorBranchReply.ATMList[0].LocationIdentifier.Address.AddressLine1)
+            log(results.GetListATMorBranchReply.BranchList[0].LocationIdentifier.PhoneNumber)
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                    "text": op
+            }
+        })
+
     elif "activate" in message_text:
         requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=waitForAMoment)
         requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=showTyping)
@@ -537,8 +556,9 @@ def process_message(text,sender_id):
                         output="balance_check"
                 elif(ps.stem(w).lower()=='thanks' or ps.stem(w).lower()=='thank'):
                         output="You are Welcome!"
-                elif(ps.stem(w).lower().isdigit()):
-                        output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+ps.stem(w)+"&branch=y&atm=y"
+                elif(ps.stem(w).lower().isdigit() and len(str(ps.stem(w)))):
+                        #output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+ps.stem(w)+"&branch=y&atm=y"
+                        output="location_finder"
                 elif(ps.stem(w).lower()=='branch' or ps.stem(w).lower()=='atm'):
                     if 'locat' in str(words).lower() or 'find' in str(words).lower() or 'search' in str(words).lower():
                         output="branch_locate"
