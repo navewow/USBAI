@@ -611,6 +611,8 @@ def process_message(text,sender_id):
         print words
         for w in words:
                 print w
+                print ps.stem(w)
+                print ps.stem(w).lower()
                 print ps.stem(w).lower()=='balance'
                 if(ps.stem(w).lower()=='enrol'):
                         if 'online' in str(words).lower() and 'banking' in str(words).lower():
