@@ -610,6 +610,7 @@ def process_message(text,sender_id):
         entities=nltk.ne_chunk(tagged)
         print words
         for w in words:
+                print w
                 if(ps.stem(w).lower()=='enrol'):
                         if 'online' in str(words).lower() and 'banking' in str(words).lower():
                             output='Enroll to online banking at https://www.usbank.com/index.html'
