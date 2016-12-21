@@ -490,7 +490,7 @@ def send_message(recipient_id, message_text):
                             "buttons":[
                                   {
                                     "type":"web_url",
-                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Longitude'],
+                                    "url":"https://www.google.com/maps/place/"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Longitude'],
                                     "title":"Locate in Map"
                                   }
                             ]
@@ -501,7 +501,7 @@ def send_message(recipient_id, message_text):
                             "buttons":[
                                   {
                                     "type":"web_url",
-                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['GeocodeLocation']['Longitude'],
+                                    "url":"https://www.google.com/maps/place/"+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['GeocodeLocation']['Longitude'],
                                     "title":"Locate in Map"
                                   }
                             ]
@@ -512,7 +512,7 @@ def send_message(recipient_id, message_text):
                             "buttons":[
                                   {
                                     "type":"web_url",
-                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['GeocodeLocation']['Longitude'],
+                                    "url":"https://www.google.com/maps/place/"+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['GeocodeLocation']['Longitude'],
                                     "title":"Locate in Map"
                                   }
                             ]
@@ -523,7 +523,7 @@ def send_message(recipient_id, message_text):
                             "buttons":[
                                   {
                                     "type":"web_url",
-                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['GeocodeLocation']['Longitude'],
+                                    "url":"https://www.google.com/maps/place/"+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['GeocodeLocation']['Longitude'],
                                     "title":"Locate in Map"
                                   }
                             ]
@@ -534,7 +534,7 @@ def send_message(recipient_id, message_text):
                             "buttons":[
                                   {
                                     "type":"web_url",
-                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][4]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][4]['LocationIdentifier']['GeocodeLocation']['Longitude'],
+                                    "url":"https://www.google.com/maps/place/"+resultsJson['GetListATMorBranchReply']['ATMList'][4]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][4]['LocationIdentifier']['GeocodeLocation']['Longitude'],
                                     "title":"Locate in Map"
                                   }
                             ]
