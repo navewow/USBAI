@@ -460,7 +460,7 @@ def send_message(recipient_id, message_text):
     elif "location_finder" in message_text:
         results = requests.get(locFinderUrl+message_text)
         if(results is not None):
-            resultsJson = results.json();
+            resultsJson = json.loads(results.text)
             log(resultsJson);
             op="No details found"
             log(resultsJson.GetListATMorBranchReply.Status.StatusCode)
