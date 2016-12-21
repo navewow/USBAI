@@ -462,7 +462,6 @@ def send_message(recipient_id, message_text):
         log('Finding location:'+locFinderUrl+message_text);
         results = requests.get(locFinderUrl+message_text)
         resultsJson = json.loads(results.text)
-        log('Result Json:'+resultsJson);
         log(resultsJson.GetListATMorBranchReply.Status.StatusCode)
         log(resultsJsonGetListATMorBranchReply.ATMList[0].LocationIdentifier.Address.AddressLine1)
         op=str(resultsJson.GetListATMorBranchReply.ATMList[0].LocationIdentifier.Address.AddressLine1)
