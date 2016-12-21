@@ -457,7 +457,7 @@ def send_message(recipient_id, message_text):
                     ]
             }
         })
-    elif "location_finder" in message_text:
+    elif message_text.isdigit() and len(str(message_text))==5 :
         op="No details found. Please try again with another zip code."
         log('Finding location:'+locFinderUrl+message_text);
         results = requests.get(locFinderUrl+message_text)
@@ -560,7 +560,7 @@ def process_message(text,sender_id):
                         output="You are Welcome!"
                 elif(ps.stem(w).lower().isdigit() and len(str(ps.stem(w)))):
                         #output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+ps.stem(w)+"&branch=y&atm=y"
-                        output="location_finder"
+                        output=ps.stem(w).lower()
                 elif(ps.stem(w).lower()=='branch' or ps.stem(w).lower()=='atm'):
                     if 'locat' in str(words).lower() or 'find' in str(words).lower() or 'search' in str(words).lower():
                         output="branch_locate"
