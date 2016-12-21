@@ -490,26 +490,54 @@ def send_message(recipient_id, message_text):
                             "buttons":[
                                   {
                                     "type":"web_url",
-                                    "url":"https://www.google.com/maps/place/"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Longitude']+",17z",
+                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Longitude'],
                                     "title":"Locate in Map"
                                   }
-                                ]
+                            ]
                         },
                         {
                             "title":"Dist: "+resultsJson['GetListATMorBranchReply']['ATMList'][1]['Distance']+" miles,  "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
                             "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['Address']['AddressLine1']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['Address']['City']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['Address']['ZipCode'],
+                            "buttons":[
+                                  {
+                                    "type":"web_url",
+                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['GeocodeLocation']['Longitude'],
+                                    "title":"Locate in Map"
+                                  }
+                            ]
                         },
                         {
                             "title":"Dist: "+resultsJson['GetListATMorBranchReply']['ATMList'][2]['Distance']+" miles,  "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
                             "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['Address']['AddressLine1']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['Address']['City']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['Address']['ZipCode'],
+                            "buttons":[
+                                  {
+                                    "type":"web_url",
+                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['GeocodeLocation']['Longitude'],
+                                    "title":"Locate in Map"
+                                  }
+                            ]
                         },
                         {
                             "title":"Dist: "+resultsJson['GetListATMorBranchReply']['ATMList'][3]['Distance']+" miles,  "+resultsJson['GetListATMorBranchReply']['ATMList'][3]['CommonLocationName'],
                             "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['Address']['AddressLine1']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['Address']['City']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['Address']['ZipCode'],
+                            "buttons":[
+                                  {
+                                    "type":"web_url",
+                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['GeocodeLocation']['Longitude'],
+                                    "title":"Locate in Map"
+                                  }
+                            ]
                         },
                         {
                             "title":"Dist: "+resultsJson['GetListATMorBranchReply']['ATMList'][4]['Distance']+" miles,  "+resultsJson['GetListATMorBranchReply']['ATMList'][4]['CommonLocationName'],
                             "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][4]['LocationIdentifier']['Address']['AddressLine1']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][4]['LocationIdentifier']['Address']['City']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][4]['LocationIdentifier']['Address']['ZipCode'],
+                            "buttons":[
+                                  {
+                                    "type":"web_url",
+                                    "url":"https://www.google.com/maps/place/@"+resultsJson['GetListATMorBranchReply']['ATMList'][4]['LocationIdentifier']['GeocodeLocation']['Latitude']+","+resultsJson['GetListATMorBranchReply']['ATMList'][4]['LocationIdentifier']['GeocodeLocation']['Longitude'],
+                                    "title":"Locate in Map"
+                                  }
+                            ]
                         }
                     ]
                   }
