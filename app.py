@@ -487,6 +487,13 @@ def send_message(recipient_id, message_text):
                         {
                             "title":"Dist: "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['Distance']+" miles,  "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
                             "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['AddressLine1']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['City']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['ZipCode'],
+                            "buttons":[
+                                  {
+                                    "type":"web_url",
+                                    "url":"https://www.google.com/maps/place/"+"resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName']"+"/@"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Latitude']+",resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Longitude']"+",17z",
+                                    "title":"Locate in Map"
+                                  }
+                                ]
                         },
                         {
                             "title":"Dist: "+resultsJson['GetListATMorBranchReply']['ATMList'][1]['Distance']+" miles,  "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
