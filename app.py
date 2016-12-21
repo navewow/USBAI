@@ -476,15 +476,19 @@ def send_message(recipient_id, message_text):
                     "elements":[
                         {
                             "title":"Dist:"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['Distance']+" "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
-                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['AddressLine1'],
+                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['AddressLine1']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['City']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['Address']['ZipCode'],
                         },
                         {
                             "title":"Dist:"+resultsJson['GetListATMorBranchReply']['ATMList'][1]['Distance']+" "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
-                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['Address']['AddressLine1'],
+                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['Address']['AddressLine1']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['Address']['City']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][1]['LocationIdentifier']['Address']['ZipCode'],
                         },
                         {
                             "title":"Dist:"+resultsJson['GetListATMorBranchReply']['ATMList'][2]['Distance']+" "+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName'],
-                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['Address']['AddressLine1'],
+                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['Address']['AddressLine1']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['Address']['City']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][2]['LocationIdentifier']['Address']['ZipCode'],
+                        },
+                        {
+                            "title":"Dist:"+resultsJson['GetListATMorBranchReply']['ATMList'][3]['Distance']+" "+resultsJson['GetListATMorBranchReply']['ATMList'][3]['CommonLocationName'],
+                            "subtitle":resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['Address']['AddressLine1']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['Address']['City']+", "+resultsJson['GetListATMorBranchReply']['ATMList'][3]['LocationIdentifier']['Address']['ZipCode'],
                         }
                     ]
                   }
