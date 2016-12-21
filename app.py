@@ -481,6 +481,7 @@ def send_message(recipient_id, message_text):
                     "elements":[
                         {
                             "title":"Top 5 ATMs are fetched.",
+                            "image_url":"https://petersfancybrownhats.com/company_image.png",
                             "subtitle":"Please slide right to see the list.",
                         },
                         {
