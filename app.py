@@ -582,7 +582,7 @@ def send_message(recipient_id, message_text):
                 "id": recipient_id
             },
             "message": {
-                "text": "login successfully"
+                "text": "logged in successfully"
             }
         })
     else:
@@ -623,7 +623,7 @@ def process_message(text,sender_id):
                             output="Your last transaction has been cancelled"
                         elif 'last' in str(words).lower():
                             output="transaction_receipt"
-                elif(ps.stem(w).lower()=='balance_check' or 'summary' in ps.stem(w).lower() or 'balance' in ps.stem(w).lower()):
+                elif(ps.stem(w).lower()=='balance' or ps.stem(w).lower()=='balance_check' or ps.stem(w).lower()=='summary'):
                         output="balance_check"
                 elif(ps.stem(w).lower()=='thanks' or ps.stem(w).lower()=='thank'):
                         output="You are Welcome!"
