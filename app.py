@@ -623,11 +623,10 @@ def process_message(text,sender_id):
                             output="Your last transaction has been cancelled"
                         elif 'last' in str(words).lower():
                             output="transaction_receipt"
-                elif(ps.stem(w).lower()=='balance' or ps.stem(w).lower()=='summary'):
-                    output="balance_check"
-                    log(ps.stem(w).lower()=='balance')
+                elif(ps.stem(w).lower()=='balance'):
+                        output="balance_check"
                 elif(ps.stem(w).lower()=='thanks' or ps.stem(w).lower()=='thank'):
-                    output="You are Welcome!"
+                        output="You are Welcome!"
                 elif(ps.stem(w).lower().isdigit() and len(str(ps.stem(w)))):
                     #output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+ps.stem(w)+"&branch=y&atm=y"
                     output=ps.stem(w).lower()
