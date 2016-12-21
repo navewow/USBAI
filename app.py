@@ -490,7 +490,7 @@ def send_message(recipient_id, message_text):
                             "buttons":[
                                   {
                                     "type":"web_url",
-                                    "url":"https://www.google.com/maps/place/"+"resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName']"+"/@"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Latitude']+",resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Longitude']"+",17z",
+                                    "url":"https://www.google.com/maps/place/"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['CommonLocationName']+"/@"+resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Latitude']+",resultsJson['GetListATMorBranchReply']['ATMList'][0]['LocationIdentifier']['GeocodeLocation']['Longitude']"+",17z",
                                     "title":"Locate in Map"
                                   }
                                 ]
