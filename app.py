@@ -592,11 +592,11 @@ def send_message(recipient_id, message_text):
                      "template_type":"generic",
                      "elements":[
                       {
-                          "title":"If you are an existing client, please logon for bot banking.",
+                          "title":"If you are an existing client, please login.",
                           "buttons":[
                              {
                                 "type":"account_link",
-                                "url":"https://logapp.herokuapp.com/login.php",
+                                "url":"https://usblogin.herokuapp.com/login.php",
                              }
                          ]
                       }
