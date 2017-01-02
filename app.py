@@ -485,7 +485,7 @@ def send_message(recipient_id, message_text):
                     "elements":[
                         {
                             "title":"Top 5 ATMs are fetched.",
-                            "image_url":"http://icons.iconarchive.com/icons/graphicloads/flat-finance/128/atm-icon.png",
+                            "image_url":"https://pbs.twimg.com/profile_images/2559525113/USBankCareersAvatar6158.png",
                             "subtitle":"Please slide right to see the list.",
                         },
                         {
