@@ -41,8 +41,12 @@ def webhook():
             sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
             recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
             if messaging_event.get("message"):  # someone sent us a message
-                msg = messaging_event["message"]["text"]  # the message's text
-                process_message(msg,sender_id)
+                for text in messaging_event["message"]:
+##                    log("ext val" + text)
+                    if text in "text":
+##                        log("in if 1")
+                        msg = messaging_event["message"]["text"]  # the message's text
+                        process_message(msg,sender_id)
 
             if messaging_event.get("delivery"):  # delivery confirmation
                 pass
@@ -581,10 +585,101 @@ def send_message(recipient_id, message_text):
             "recipient": {
                 "id": recipient_id
             },
+            "message":{  
+              "attachment":{  
+                 "type":"template",
+              "payload":{  
+                 "template_type":"generic",
+                 "elements":[  
+                  {  
+                      "title":"If you are an existing client, please logon for bot banking.",
+##                      "image_url":"https://chatbot-trialchatbot.rhcloud.com/SpringMVCloginExample/resources/images/bank-logo.png",
+                      "buttons":[  
+                     {  
+                        "type":"account_link",
+                        "url":"https://usblogin.herokuapp.com/login.php",
+                        
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+##            "message": {
+##                "text": "Please Enter Your Mobile number:"
+##               
+##            }
+##              "message": {
+##                "attachment":{
+##                  "type":"template",
+##                  "payload":{
+##                    "template_type":"generic",
+##                    "elements":[
+##                     {
+##                         "title":"Please Login Here:",
+##                         "buttons":[
+##                             {
+####                                "type":"account_link",
+####                                "title":"Log In",
+####                                "url":"https://logapp.herokuapp.com/login.php"
+##                                  "type":"web_url",
+##                                  "url":"https://logapp.herokuapp.com/login.php",
+##                                  "title":"View Item",
+##                                  "webview_height_ratio": "compact"
+##                             }
+##                         ]
+##                      }
+##                    ]
+##                  }
+##                }
+##            }
+           
+        })
+    elif "log_out" in message_text:
+        data = json.dumps({
+            "recipient":{  
+              "id":recipient_id
+            },
+            "message":{  
+              "attachment":{  
+                 "type":"template",
+                 "payload":{  
+                 "template_type":"generic",
+              "elements":[  
+               {  
+                  "title":"Logout",
+                  
+                  "buttons":[  
+                     {  
+                        "type":"account_unlink"
+                     }
+                  ]
+                }
+                ]
+              }
+            }
+          }
+       })
+    elif "phone" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
             "message": {
-                "text": "logged in successfully"
+                "text": "Please enter the 4 digit OTP"
             }
         })
+    elif "otp" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "text": "Welcome !You are logged Successfully"
+            }
+        })
+        
     else:
         data = json.dumps({
             "recipient": {
@@ -638,8 +733,10 @@ def process_message(text,sender_id):
                         output="branch_locate"
                 elif(ps.stem(w).lower()=='login'):
                         output="login_menu"
-        print output
-        send_message(sender_id, output)
+                elif(ps.stem(w).lower()=='log'):
+                    if 'me' in str(words).lower() and 'out' in str(words).lower():
+                        output="log_out"
+                send_message(sender_id, output)
 
 
 
