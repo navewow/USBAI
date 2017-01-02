@@ -703,11 +703,9 @@ def process_message(text,sender_id):
                 elif(ps.stem(w).lower()=='login'):
                         output="login_menu"
                 elif(ps.stem(w).lower()=='log'):
-                    if 'me' in str(words).lower() and 'out' in str(words).lower():
+                    if 'out' in str(words).lower():
                         output="log_out"
-                send_message(sender_id, output)
-
-
+        send_message(sender_id, output)
 
 def log(message):  # simple wrapper for logging to stdout on heroku
     print str(message)
