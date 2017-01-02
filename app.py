@@ -76,7 +76,7 @@ def send_message(recipient_id, message_text):
     headers = {
         "Content-Type": "application/json"
     }
-    if ("Level-1-Menu" in message_text) or ("menu" in message_text):
+    if "Level-1-Menu" in message_text or "Main Menu" in message_text:
         data = json.dumps({
             "recipient": {
                 "id": recipient_id
@@ -585,73 +585,42 @@ def send_message(recipient_id, message_text):
             "recipient": {
                 "id": recipient_id
             },
-            "message":{  
-              "attachment":{  
+            "message":{
+              "attachment":{
                  "type":"template",
-              "payload":{  
-                 "template_type":"generic",
-                 "elements":[  
-                  {  
-                      "title":"If you are an existing client, please logon for bot banking.",
-##                      "image_url":"https://chatbot-trialchatbot.rhcloud.com/SpringMVCloginExample/resources/images/bank-logo.png",
-                      "buttons":[  
-                     {  
-                        "type":"account_link",
-                        "url":"https://usblogin.herokuapp.com/login.php",
-                        
-                     }
-                  ]
-               }
-            ]
-         }
-      }
-   }
-##            "message": {
-##                "text": "Please Enter Your Mobile number:"
-##               
-##            }
-##              "message": {
-##                "attachment":{
-##                  "type":"template",
-##                  "payload":{
-##                    "template_type":"generic",
-##                    "elements":[
-##                     {
-##                         "title":"Please Login Here:",
-##                         "buttons":[
-##                             {
-####                                "type":"account_link",
-####                                "title":"Log In",
-####                                "url":"https://logapp.herokuapp.com/login.php"
-##                                  "type":"web_url",
-##                                  "url":"https://logapp.herokuapp.com/login.php",
-##                                  "title":"View Item",
-##                                  "webview_height_ratio": "compact"
-##                             }
-##                         ]
-##                      }
-##                    ]
-##                  }
-##                }
-##            }
-           
+                  "payload":{
+                     "template_type":"generic",
+                     "elements":[
+                      {
+                          "title":"If you are an existing client, please logon for bot banking.",
+                          "buttons":[
+                             {
+                                "type":"account_link",
+                                "url":"https://logapp.herokuapp.com/login.php",
+                             }
+                         ]
+                      }
+                    ]
+                  }
+              }
+            }
         })
     elif "log_out" in message_text:
         data = json.dumps({
-            "recipient":{  
+            "recipient":{
               "id":recipient_id
             },
-            "message":{  
-              "attachment":{  
+            "message":{
+              "attachment":{
                  "type":"template",
-                 "payload":{  
+                 "payload":{
                  "template_type":"generic",
-              "elements":[  
-               {  
+              "elements":[
+               {
                   "title":"Logout",
-                  
-                  "buttons":[  
-                     {  
+
+                  "buttons":[
+                     {
                         "type":"account_unlink"
                      }
                   ]
@@ -679,7 +648,7 @@ def send_message(recipient_id, message_text):
                 "text": "Welcome !You are logged Successfully"
             }
         })
-        
+
     else:
         data = json.dumps({
             "recipient": {
