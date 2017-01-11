@@ -4,6 +4,7 @@ import json
 
 import requests
 import urllib2
+import uuid
 
 try:
     import apiai
