@@ -9,3 +9,4 @@ requests==2.10.0
 wsgiref==0.1.2
 nltk==3.2.1
 numpy==1.12.0b1
+apiai==1.2.1
