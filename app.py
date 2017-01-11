@@ -4,6 +4,15 @@ import json
 
 import requests
 import urllib2
+
+try:
+    import apiai
+except ImportError:
+    sys.path.append(
+        os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir)
+    )
+    import apiai
+    
 from flask import Flask, request
 from datetime import datetime
 import nltk
@@ -11,7 +20,29 @@ from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 
 app = Flask(__name__)
+CLIENT_ACCESS_TOKEN = '64a9a332b5834a73b61b860b885def02'
 
+#@app.route('/GetMethod', methods=['Get'])
+def GetMethod(strUserQuery):
+    ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
+
+    request = ai.text_request()
+
+    #request.lang = 'de'  # optional, default value equal 'en'
+
+    request.session_id = str(uuid.uuid4())
+
+    request.query = str(strUserQuery)
+
+    response = request.getresponse()
+    
+    strResponse =  str(response.read())
+    
+    print("GetMethodResponse")
+
+    print (strResponse)
+    
+    return strResponse
 
 @app.route('/bot', methods=['GET'])
 def verify():
@@ -46,6 +77,7 @@ def webhook():
                     if text in "text":
 ##                        log("in if 1")
                         msg = messaging_event["message"]["text"]  # the message's text
+                        strResponse = GetMethod(msg)
                         process_message(msg,sender_id)
 
             if messaging_event.get("delivery"):  # delivery confirmation
