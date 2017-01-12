@@ -165,6 +165,32 @@ def send_message(recipient_id, message_text):
                 }
             }
         })
+    elif "login" in message_text:
+        data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":[
+                     {
+                        "title":"Loing",
+                        "subtitle":"Account",
+                        "buttons":[
+                          {
+                             "type": "account_link",
+                             "url": "https://weatherupdatefb.herokuapp.com/authorize"
+                          }
+                        ]
+                     }
+                    ]
+                  }
+                }
+            }
+        })
     elif "transaction_history_1" in message_text:
         data = json.dumps({
             "recipient": {
@@ -713,9 +739,12 @@ def process_message(text,sender_id):
                 if(ps.stem(w).lower()=='enrol'):
                         if 'online' in str(words).lower() and 'banking' in str(words).lower():
                             output='Enroll to online banking at https://www.usbank.com/index.html'
-                elif(ps.stem(w).lower()=='block'):
+                elif(ps.stem(w).lower()=='login'):
                         if 'my' in str(words).lower() and 'card' in str(words).lower():
                             output="Card has been blocked"
+                elif(ps.stem(w).lower()=='block'):
+                        if 'my' in str(words).lower() and 'card' in str(words).lower():
+                            output="login"
                 elif(ps.stem(w).lower()=='activat'):
                     output="Card has been Activated"
                 elif(ps.stem(w).lower()=='balanc' or ps.stem(w).lower()=='summari'):
