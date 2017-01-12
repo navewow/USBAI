@@ -699,43 +699,44 @@ def send_message(recipient_id, message_text):
 
 def process_message(text,sender_id):
         text=text.lower()
+        words = text.split(" ")
         output="Level-1-Menu"
         ps = PorterStemmer()
-        words=word_tokenize(text)
-        tokens=nltk.word_tokenize(text)
-        tagged=nltk.pos_tag(tokens)
-        entities=nltk.ne_chunk(tagged)
+        #words=word_tokenize(text)
+        #tokens=nltk.word_tokenize(text)
+        #tagged=nltk.pos_tag(tokens)
+        #entities=nltk.ne_chunk(tagged)
         print words
         for w in words:
                 #print w
-                print ps.stem(w)
-                #print ps.stem(w).lower()
-                if(ps.stem(w).lower()=='enrol'):
+                print w
+                #print w.lower()
+                if(w.lower()=='enrol'):
                         if 'online' in str(words).lower() and 'banking' in str(words).lower():
                             output='Enroll to online banking at https://www.usbank.com/index.html'
-                elif(ps.stem(w).lower()=='block'):
-                        if 'my' in str(words).lower() and 'card' in str(words).lower():
+                elif(w.lower()=='block'):
+                        if 'my' in str(words.lower() and 'card' in str(words).lower():
                             output="login"
-                elif(ps.stem(w).lower()=='activat'):
+                elif(w.lower()=='activat'):
                     output="Card has been Activated"
-                elif(ps.stem(w).lower()=='balanc' or ps.stem(w).lower()=='summari'):
+                elif(w.lower()=='balanc' or w.lower()=='summari'):
                     output="balance_check"
-                elif(ps.stem(w).lower()=='histori' or ps.stem(w).lower()=='transact'):
+                elif(w.lower()=='histori' or w.lower()=='transact'):
                     if 'cancel' in str(words).lower():
                         output="transaction_receipt"
                     elif 'last' in str(words).lower():
                         output="transaction_history"
-                elif(ps.stem(w).lower()=='thanks' or ps.stem(w).lower()=='thank'):
+                elif(w.lower()=='thanks' or w.lower()=='thank'):
                     output="You are Welcome!"
-                elif(ps.stem(w).lower().isdigit() and len(str(ps.stem(w)))):
-                    #output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+ps.stem(w)+"&branch=y&atm=y"
-                    output=ps.stem(w).lower()
-                elif(ps.stem(w).lower()=='branch' or ps.stem(w).lower()=='atm'):
-                    if 'locat' in str(words).lower() or 'find' in str(words).lower() or 'search' in str(words).lower():
+                 elif(w.lower().isdigit() and len(str(w))):
+                    #output="Please find the details here: https://www.usbank.com/locations/locator-results.html?stringquery="+w)+"&branch=y&atm=y"
+                    output=w.lower()
+                elif(w.lower()=='branch' or w.lower()=='atm'):
+                    if 'locat' in str(words.lower() or 'find' in str(words).lower() or 'search' in str(words).lower():
                         output="branch_locate"
-                elif(ps.stem(w).lower()=='login'):
+                elif(w.lower()=='login'):
                         output="login_menu"
-                elif(ps.stem(w).lower()=='log'):
+                elif(w.lower()=='log'):
                     if 'out' in str(words).lower():
                         output="log_out"
         send_message(sender_id, output)
